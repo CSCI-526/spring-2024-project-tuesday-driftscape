@@ -401,7 +401,7 @@
       "dependencies": {}
     },
     "com.unity.modules.unityanalytics": {
-      "version": "1.0.0",
+      "version": "5.1.0",
       "depth": 0,
       "source": "builtin",
       "dependencies": {
