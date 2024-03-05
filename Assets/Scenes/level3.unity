@@ -810,7 +810,7 @@ MonoBehaviour:
   speed: 3
   jumpKey: 32
   textspeed: 0.2
-  hintransform: {fileID: 0}
+  hintransform: {fileID: 917017031}
   isHint: 0
   hintgtransform: {fileID: 557281361}
   isHintg: 0

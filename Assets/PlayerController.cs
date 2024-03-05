@@ -259,7 +259,7 @@ public class PlayerController : MonoBehaviour
         if (nextlevel.activeSelf && Input.GetKeyDown(KeyCode.O))
         {
             float timeElapsed = Time.time;
-            analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed);
+            //analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed);
             ReloadNextScene();
         }
         // Check if the ESC key is pressed
@@ -303,7 +303,9 @@ public class PlayerController : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         Vector2 movement = new Vector2(moveHorizontal * speed, rb2d.velocity.y);
+        
         rb2d.velocity = movement;
+        // Debug.Log("moving now:"+rb2d.velocity);
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -334,6 +336,18 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        // Continuously check for collision with the ground
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+            isJump = true;
+        }
+    }
+
+
     void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ground"))
