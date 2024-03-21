@@ -84,6 +84,8 @@ public class PlayerController : MonoBehaviour
         hintstartPosition = hintransform.anchoredPosition;
         hintgstartPosition = hintgtransform.anchoredPosition;
 
+
+
     }
 
     void UpdateDirectionIndicator()
@@ -337,6 +339,8 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+
     private void OnCollisionStay2D(Collision2D other)
     {
         // Continuously check for collision with the ground
@@ -394,6 +398,9 @@ public class PlayerController : MonoBehaviour
         isImmobilized = false;
         spriteRenderer.color = originalColor;
     }
+
+
+
     IEnumerator Cooldown()
     {
         isCooldown = true; // 开始冷却
