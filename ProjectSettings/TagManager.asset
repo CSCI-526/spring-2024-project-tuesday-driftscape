@@ -8,6 +8,7 @@ TagManager:
   - Slow
   - Goal
   - Enemy
+  - Hurt
   layers:
   - Default
   - TransparentFX

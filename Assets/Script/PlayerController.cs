@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
 
 
     public Time timestart;
+    // 当前帧计数器
+    private int frameCounter = 0;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -93,7 +95,6 @@ public class PlayerController : MonoBehaviour
             Vector2 movement = new Vector2(moveHorizontal, moveVertical) * speed;
             rb2d.velocity = movement;
         }
-        Debug.Log("enemies.length = " + enemies.Length);
         if (enemies.Length > 0)
         {
             foreach (Transform enemy in enemies)
@@ -160,7 +161,6 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0)) // Left mouse button clicked
         {
-            Debug.Log("leftMouseClicked");
             Shoot();
         }
 
@@ -186,10 +186,8 @@ public class PlayerController : MonoBehaviour
             {
                 if (food.activeSelf && Vector3.Distance(food.transform.position, transform.position) < 0.8f)
                 {
-                    Debug.Log("before" + health);
                     health = Math.Min(incHealth + health, 100);
                     food.SetActive(false);
-                    Debug.Log("after" + health);
                 }
             }
         }
@@ -216,7 +214,6 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("Enter ground");
             isGrounded = true; // �Ӵ�����ʱ���µ���״̬
             isJump = true;
 
@@ -236,10 +233,20 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionStay2D(Collision2D other)
     {
         // Continuously check for collision with the ground
-        if (other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Hurt"))
         {
             isGrounded = true;
             isJump = true;
+        }
+        // 检查是否与Hurt标签的对象保持碰撞
+        if (other.gameObject.CompareTag("Hurt"))
+        {
+            // 多帧减少一次生命值
+            if (frameCounter % 4 == 0)
+            {
+                TakeDamage(1); 
+            }
+            frameCounter++;
         }
     }
     void OnCollisionExit2D(Collision2D other)
@@ -256,13 +263,13 @@ public class PlayerController : MonoBehaviour
         {
             speed = originalSpeed; // �ٶȻָ�
         }
+
     }
     IEnumerator TemporaryLoseGravity(float duration)
     {
         rb2d.gravityScale = 0; // ���ʧȥ����
         canMoveFreely = true; // ������������ƶ�
         rb2d.velocity = new Vector2(rb2d.velocity.x, 20f);
-        //hintransform.anchoredPosition += hintransform.rect.width/2*Vector2.right;
         yield return new WaitForSeconds(duration); // �ȴ�ָ��ʱ��
         rb2d.gravityScale = 1; // �ָ�����
         canMoveFreely = false; // �ָ������ƶ�����
@@ -292,7 +299,6 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        Debug.Log("被击中，现在生命值为："+health);
         StartCoroutine(FlashRed());
     }
 
@@ -306,12 +312,10 @@ public class PlayerController : MonoBehaviour
         mousePosition.z = 0f; // Ensure z-coordinate is appropriate for 2D
 
         Vector2 direction = (mousePosition - transform.position).normalized;
-        Debug.Log("bullet direction = " + direction);
 
         if(Time.time > nextFire)//让子弹发射有间隔，现在设置为0.0秒
         {
             nextFire = Time.time + 0.0F;//子弹时间间隔设置为0.0秒
-            Debug.Log("jinru le");
             bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
             
             BulletController bulletController = bullet.GetComponent<BulletController>();
