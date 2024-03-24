@@ -292,7 +292,8 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        Debug.Log("ײ���˵���");
+        Debug.Log("被击中，现在生命值为："+health);
+        StartCoroutine(FlashRed());
     }
 
 
