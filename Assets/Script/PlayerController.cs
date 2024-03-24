@@ -6,16 +6,16 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-    public float jumpForce; // ÌøÔ¾Á¦¶È
+    public float jumpForce; // ï¿½ï¿½Ô¾ï¿½ï¿½ï¿½ï¿½
     public float speed;
-    public float originalSpeed = 5f; // ¼Ù¶¨Ô­Ê¼ËÙ¶ÈÎª5
+    public float originalSpeed = 5f; // ï¿½Ù¶ï¿½Ô­Ê¼ï¿½Ù¶ï¿½Îª5
     public KeyCode jumpKey = KeyCode.Space;
     private Rigidbody2D rb2d;
 
     public int health = 100;
     public int decHealth = 5;
     public int incHealth = 5;
-    private float timer = 0f; // ¼ÆÊ±Æ÷
+    private float timer = 0f; // ï¿½ï¿½Ê±ï¿½ï¿½
     public GameObject fgoal;
 
     public Navigation[] navis;
@@ -38,21 +38,26 @@ public class PlayerController : MonoBehaviour
     public GameObject[] foods;
 
 
-    private bool isPaused = false;
+    // private bool isPaused = false;
     private bool hasFake = false;
-    public GameObject pauseMenuUI;
+    // public GameObject pauseMenuUI;
+
+    // Bullet
+    public GameObject bulletPrefab; // Reference to the bullet prefab
+    public Transform firePoint; // Transform where bullets will be instantiated
+
 
     public Time timestart;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>(); // »ñÈ¡SpriteRenderer×é¼ş
+        spriteRenderer = GetComponent<SpriteRenderer>(); // ï¿½ï¿½È¡SpriteRendererï¿½ï¿½ï¿½
         // analytic = GetComponent<LevelCompleteAnalytics>();
-        originalColor = spriteRenderer.color; // ±£´æÔ­Ê¼ÑÕÉ«
+        originalColor = spriteRenderer.color; // ï¿½ï¿½ï¿½ï¿½Ô­Ê¼ï¿½ï¿½É«
         /*success.SetActive(false);
         restart.SetActive(false);
         nextlevel.SetActive(false);*/
-        pauseMenuUI.SetActive(false);
+        // pauseMenuUI.SetActive(false);
         jumpForce = 8;
         FreeFlytime = 3.0f;
         speed = 5;
@@ -72,15 +77,15 @@ public class PlayerController : MonoBehaviour
         // {
         //     TogglePause();
         // }
-        // ÀÛ¼ÓÊ±¼ä
+        // ï¿½Û¼ï¿½Ê±ï¿½ï¿½
         timer += Time.deltaTime;
 
-        // Ã¿µ±¼ÆÊ±Æ÷´ïµ½»ò³¬¹ı1ÃëÊ±
+        // Ã¿ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ïµ½ï¿½ò³¬¹ï¿½1ï¿½ï¿½Ê±
         if (timer >= 1f)
         {
-            // ¼õÉÙÉúÃüÖµ
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
             health -= 1;
-            // ÖØÖÃ¼ÆÊ±Æ÷
+            // ï¿½ï¿½ï¿½Ã¼ï¿½Ê±ï¿½ï¿½
             timer = 0f;
         }
         if (canMoveFreely)
@@ -88,15 +93,19 @@ public class PlayerController : MonoBehaviour
             Vector2 movement = new Vector2(moveHorizontal, moveVertical) * speed;
             rb2d.velocity = movement;
         }
+        Debug.Log("enemies.length = " + enemies.Length);
         if (enemies.Length > 0)
         {
             foreach (Transform enemy in enemies)
             {
-                if (Vector3.Distance(enemy.position, transform.position) < 1.05f)
-                {
-                    health -= 1;
-                    StartCoroutine(FlashRed());
+                if(enemy != null){
+                    if (Vector3.Distance(enemy.position, transform.position) < 1.05f)
+                    {
+                        health -= 1;
+                        StartCoroutine(FlashRed());
+                    }
                 }
+
             }
         }
         eatFood();
@@ -137,7 +146,7 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 0;
             //restart.SetActive(true);
         }
-        // Èç¹ûÖØÆôµÄUIÏÔÊ¾£¬²¢ÇÒÍæ¼Ò°´ÏÂÁËF¼ü£¬ÔòÖØĞÂ¼ÓÔØµ±Ç°³¡¾°
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½UIï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Øµï¿½Ç°ï¿½ï¿½ï¿½ï¿½
         /*if (restart.activeSelf && Input.GetKeyDown(KeyCode.F))
         {
             ReloadCurrentScene();
@@ -148,6 +157,13 @@ public class PlayerController : MonoBehaviour
             //analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed);
             ReloadNextScene();
         }*/
+
+        if (Input.GetMouseButtonDown(0)) // Left mouse button clicked
+        {
+            Debug.Log("leftMouseClicked");
+            Shoot();
+        }
+
     }
     void Jump()
     {
@@ -180,17 +196,17 @@ public class PlayerController : MonoBehaviour
     }
     void ReloadCurrentScene()
     {
-        Time.timeScale = 1; // ³¡¾°ÔË¶¯
-        int sceneIndex = SceneManager.GetActiveScene().buildIndex; // »ñÈ¡µ±Ç°³¡¾°µÄË÷Òı
-        SceneManager.LoadScene(sceneIndex); // ¸ù¾İË÷ÒıÖØĞÂ¼ÓÔØ³¡¾°
+        Time.timeScale = 1; // ï¿½ï¿½ï¿½ï¿½ï¿½Ë¶ï¿½
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex; // ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        SceneManager.LoadScene(sceneIndex); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ø³ï¿½ï¿½ï¿½
         //possession = 0;
         Vector2 originalGravity = Physics2D.gravity;
         Physics2D.gravity = new Vector2(0, -9.81f);
     }
     void ReloadNextScene()
     {
-        Time.timeScale = 1; // ³¡¾°ÔË¶¯
-        //SceneManager.LoadScene(nextsceneName); // ¼ÓÔØÖ¸¶¨³¡¾°
+        Time.timeScale = 1; // ï¿½ï¿½ï¿½ï¿½ï¿½Ë¶ï¿½
+        //SceneManager.LoadScene(nextsceneName); // ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         //possession = 0;
         Vector2 originalGravity = Physics2D.gravity;
         Physics2D.gravity = new Vector2(0, -9.81f);
@@ -201,20 +217,20 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             Debug.Log("Enter ground");
-            isGrounded = true; // ½Ó´¥µØÃæÊ±¸üĞÂµØÃæ×´Ì¬
+            isGrounded = true; // ï¿½Ó´ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½×´Ì¬
             isJump = true;
 
         }
-        if (other.gameObject.CompareTag("Goal")) // ¼ì²âÊÇ·ñÅö×²µ½Goal
+        if (other.gameObject.CompareTag("Goal")) // ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½×²ï¿½ï¿½Goal
         {
-            spriteRenderer.color = Color.green; // ½«ÇòÌåÑÕÉ«¸ÄÎªÂÌÉ«
-            Time.timeScale = 0; // ¾²Ö¹³¡¾°
+            spriteRenderer.color = Color.green; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½Îªï¿½ï¿½É«
+            Time.timeScale = 0; // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½
             /*success.SetActive(true);
             nextlevel.SetActive(true);*/
         }
-        if (other.gameObject.CompareTag("Slow")) // Åö×²µ½ "Slow" µØ°å
+        if (other.gameObject.CompareTag("Slow")) // ï¿½ï¿½×²ï¿½ï¿½ "Slow" ï¿½Ø°ï¿½
         {
-            speed = originalSpeed * 0.5f; // ËÙ¶È¼õ°ë
+            speed = originalSpeed * 0.5f; // ï¿½Ù¶È¼ï¿½ï¿½ï¿½
         }
     }
     private void OnCollisionStay2D(Collision2D other)
@@ -230,26 +246,26 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            isGrounded = false; // Àë¿ªµØÃæÊ±¸üĞÂµØÃæ×´Ì¬
+            isGrounded = false; // ï¿½ë¿ªï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½×´Ì¬
         }
-        if (other.gameObject.CompareTag("Goal")) // ¼ì²âÊÇ·ñÅö×²µ½Goal
+        if (other.gameObject.CompareTag("Goal")) // ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½×²ï¿½ï¿½Goal
         {
-            spriteRenderer.color = originalColor; // ½«ÇòÌåÑÕÉ«¸ÄÎªÔ­±¾ÑÕÉ«
+            spriteRenderer.color = originalColor; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ÎªÔ­ï¿½ï¿½ï¿½ï¿½É«
         }
-        if (other.gameObject.CompareTag("Slow")) // Àë¿ª "Slow" µØ°å
+        if (other.gameObject.CompareTag("Slow")) // ï¿½ë¿ª "Slow" ï¿½Ø°ï¿½
         {
-            speed = originalSpeed; // ËÙ¶È»Ö¸´
+            speed = originalSpeed; // ï¿½Ù¶È»Ö¸ï¿½
         }
     }
     IEnumerator TemporaryLoseGravity(float duration)
     {
-        rb2d.gravityScale = 0; // Íæ¼ÒÊ§È¥ÖØÁ¦
-        canMoveFreely = true; // ÔÊĞíÍæ¼Ò×ÔÓÉÒÆ¶¯
+        rb2d.gravityScale = 0; // ï¿½ï¿½ï¿½Ê§È¥ï¿½ï¿½ï¿½ï¿½
+        canMoveFreely = true; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½
         rb2d.velocity = new Vector2(rb2d.velocity.x, 20f);
         //hintransform.anchoredPosition += hintransform.rect.width/2*Vector2.right;
-        yield return new WaitForSeconds(duration); // µÈ´ıÖ¸¶¨Ê±¼ä
-        rb2d.gravityScale = 1; // »Ö¸´ÖØÁ¦
-        canMoveFreely = false; // »Ö¸´Õı³£ÒÆ¶¯ÏŞÖÆ
+        yield return new WaitForSeconds(duration); // ï¿½È´ï¿½Ö¸ï¿½ï¿½Ê±ï¿½ï¿½
+        rb2d.gravityScale = 1; // ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½
+        canMoveFreely = false; // ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½
         health -= decHealth;
     }
 
@@ -276,6 +292,35 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        Debug.Log("×²µ½ÁËµ¼µ¯");
+        Debug.Log("×²ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½");
     }
+
+
+    GameObject bullet;
+    private float nextFire = 0.0F;
+    void Shoot()
+    {
+        // å­å¼¹æ–¹å‘
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0f; // Ensure z-coordinate is appropriate for 2D
+
+        Vector2 direction = (mousePosition - transform.position).normalized;
+        Debug.Log("bullet direction = " + direction);
+
+        if(Time.time > nextFire)//è®©å­å¼¹å‘å°„æœ‰é—´éš”ï¼Œç°åœ¨è®¾ç½®ä¸º0.0ç§’
+        {
+            nextFire = Time.time + 0.0F;//å­å¼¹æ—¶é—´é—´éš”è®¾ç½®ä¸º0.0ç§’
+            Debug.Log("jinru le");
+            bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            
+            BulletController bulletController = bullet.GetComponent<BulletController>();
+            if (bulletController != null)
+            {
+                bulletController.SetDirection(direction);
+            }
+        }
+    }
+
+
+
 }

@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Slow
   - Goal
+  - Enemy
   layers:
   - Default
   - TransparentFX
