@@ -157,9 +157,11 @@ public class PlayerController : MonoBehaviour
             restartButton.SetActive(true); // 显示重新开始按钮
             homeButton.SetActive(true); // 显示重新开始按钮
             Time.timeScale = 0;
+            float timeElapsed = Time.time;
+            analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed);
+
             //restart.SetActive(true);
         }
-        // ���������UI��ʾ��������Ұ�����F���������¼��ص�ǰ����
         /*if (restart.activeSelf && Input.GetKeyDown(KeyCode.F))
         {
             ReloadCurrentScene();
@@ -236,6 +238,10 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 0; // ��ֹ����
             nextButton.SetActive(true); // 显示重新开始按钮
             homeButton.SetActive(true); // 显示重新开始按钮
+            float timeElapsed = Time.time;
+            analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed);
+
+
         }
         if (other.gameObject.CompareTag("Slow")) // ��ײ�� "Slow" �ذ�
         {
