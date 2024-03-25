@@ -5,16 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Trap
+  - Slow
   - Goal
-  - Obstacle
-  - Tool
-  - SpringBed
+  - Enemy
+  - Hurt
+  - Bullet
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Obstacle
+  - 
   - Water
   - UI
   - 
