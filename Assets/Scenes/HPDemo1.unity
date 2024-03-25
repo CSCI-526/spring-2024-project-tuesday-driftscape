@@ -3132,6 +3132,14 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1971219425}
+    - target: {fileID: 9202140250135163895, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 10.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202140250135163895, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.53
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

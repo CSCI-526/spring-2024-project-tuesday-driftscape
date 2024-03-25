@@ -51,6 +51,12 @@ public class PlayerController : MonoBehaviour
     public Time timestart;
     // 当前帧计数器
     private int frameCounter = 0;
+
+    // UI
+    public GameObject homeButton;
+    public GameObject restartButton; // 重新开始按钮
+    public GameObject nextButton; 
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -65,11 +71,14 @@ public class PlayerController : MonoBehaviour
         FreeFlytime = 3.0f;
         speed = 5;
         fgoal.SetActive(false);
+        restartButton.SetActive(false);
+        homeButton.SetActive(false);
+        nextButton.SetActive(false);
     }
 
     void Update()
     {
-        Debug.Log(health);
+        // Debug.Log(health);
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = canMoveFreely ? Input.GetAxis("Vertical") : 0;
         if (!hasFake)
@@ -145,6 +154,8 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("health=0");
+            restartButton.SetActive(true); // 显示重新开始按钮
+            homeButton.SetActive(true); // 显示重新开始按钮
             Time.timeScale = 0;
             //restart.SetActive(true);
         }
@@ -223,8 +234,8 @@ public class PlayerController : MonoBehaviour
         {
             spriteRenderer.color = Color.green; // ��������ɫ��Ϊ��ɫ
             Time.timeScale = 0; // ��ֹ����
-            /*success.SetActive(true);
-            nextlevel.SetActive(true);*/
+            nextButton.SetActive(true); // 显示重新开始按钮
+            homeButton.SetActive(true); // 显示重新开始按钮
         }
         if (other.gameObject.CompareTag("Slow")) // ��ײ�� "Slow" �ذ�
         {
