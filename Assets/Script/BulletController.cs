@@ -9,7 +9,7 @@ public class BulletController : MonoBehaviour
     public Rigidbody2D rig;
 
     void Start () {
-        Destroy(gameObject, 2); //2秒后销毁子弹，否则子弹会无限多
+        Destroy(gameObject, 4); //2秒后销毁子弹，否则子弹会无限多
     }	
  
     // Controller中将direction传入这里
