@@ -820,6 +820,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6829051932560495118, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: fgoal
       value: 
@@ -2642,7 +2646,7 @@ Transform:
   m_GameObject: {fileID: 1903732352}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.99245, y: 0.44192585, z: -1.6602564}
+  m_LocalPosition: {x: 2.99245, y: 0.44192585, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
