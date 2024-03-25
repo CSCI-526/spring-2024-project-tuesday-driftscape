@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 
+
 public class PlayerController : MonoBehaviour
 {
     public float jumpForce; // ��Ծ����
@@ -24,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     // private LevelCompleteAnalytics analytic;
 
-
+    private LevelCompleteAnalytics analytic;
     private bool isGrounded;
     private SpriteRenderer spriteRenderer;
     private bool isJump = true;
@@ -74,10 +75,11 @@ public class PlayerController : MonoBehaviour
         restartButton.SetActive(false);
         homeButton.SetActive(false);
         nextButton.SetActive(false);
-    }
+}
 
     void Update()
     {
+
         // Debug.Log(health);
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = canMoveFreely ? Input.GetAxis("Vertical") : 0;
