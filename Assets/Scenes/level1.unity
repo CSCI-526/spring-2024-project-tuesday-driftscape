@@ -1116,6 +1116,18 @@ PrefabInstance:
       propertyPath: foods.Array.data[2]
       value: 
       objectReference: {fileID: 478846140}
+    - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
+      propertyPath: dummyenemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
+      propertyPath: dummyenemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 851258471}
+    - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
+      propertyPath: dummyenemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 1798347142}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

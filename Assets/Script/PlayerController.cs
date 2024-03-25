@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     private Color originalColor;
     public Transform[] enemies;
     public Transform[] dummyenemies;
+    public Vector2[] dummyenemyPos;
     private bool canMoveFreely = false;
     public float FreeFlytime;
 
@@ -68,6 +69,13 @@ public class PlayerController : MonoBehaviour
         restart.SetActive(false);
         nextlevel.SetActive(false);*/
         // pauseMenuUI.SetActive(false);
+        // get all dummy positions
+        dummyenemyPos = new Vector2[dummyenemies.Length];
+        for (int i = 0; i < dummyenemies.Length; i++)
+        {
+            dummyenemyPos[i] = dummyenemies[i].position;
+        }
+
         jumpForce = 8;
         FreeFlytime = 3.0f;
         speed = 5;
@@ -124,6 +132,12 @@ public class PlayerController : MonoBehaviour
         eatFood();
         if (dummyenemies.Length > 0)
         {
+            // dummy enemy move left and right around its original position
+            foreach (Transform dummyenemy in dummyenemies)
+            {
+                dummyenemy.position = dummyenemyPos[Array.IndexOf(dummyenemies, dummyenemy)] + new Vector2(Mathf.Sin(Time.time), 0)*3;
+            }
+
             foreach (Transform dummyenemy in dummyenemies)
             {
                 if (Vector3.Distance(dummyenemy.position, transform.position) < 1.05f)
