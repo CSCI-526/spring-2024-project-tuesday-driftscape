@@ -6,14 +6,9 @@ public class Missile : MonoBehaviour
 {
     public float speed = 5f;
     public int damage = 10;
-    void Update()
-    {
-        transform.Translate(Vector3.down * speed * Time.deltaTime);
-    }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("OnCollisionEnter2D called with: " + other.gameObject.name);
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerController playerController = other.gameObject.GetComponent<PlayerController>();

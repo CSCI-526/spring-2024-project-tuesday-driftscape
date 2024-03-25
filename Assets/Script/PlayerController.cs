@@ -184,7 +184,7 @@ public class PlayerController : MonoBehaviour
         {
             foreach (GameObject food in foods)
             {
-                if (food.activeSelf && Vector3.Distance(food.transform.position, transform.position) < 0.8f)
+                if (food.activeSelf && Vector3.Distance(food.transform.position, transform.position) < 1.05f)
                 {
                     health = Math.Min(incHealth + health, 100);
                     food.SetActive(false);
@@ -299,6 +299,7 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        Debug.Log("Missle attack:"+health);
         StartCoroutine(FlashRed());
     }
 
