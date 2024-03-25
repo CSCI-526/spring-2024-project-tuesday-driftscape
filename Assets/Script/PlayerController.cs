@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public KeyCode jumpKey = KeyCode.Space;
     private Rigidbody2D rb2d;
 
+    public int maxHealth = 100;
     public int health = 100;
     public int decHealth = 5;
     public int incHealth = 5;
