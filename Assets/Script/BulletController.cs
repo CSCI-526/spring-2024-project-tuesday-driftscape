@@ -21,7 +21,6 @@ public class BulletController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) //触碰到别的碰撞器
     {
         
-        Debug.Log("tag = " + collision.gameObject.tag);
         
         if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Gun"){ 
             // 情形1：碰到Player

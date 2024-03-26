@@ -197,7 +197,6 @@ public class PlayerController : MonoBehaviour
     }
     public void GetAttacked(int amount){
         TakeDamage(amount);
-        Debug.Log("Be attacked， health:"+health);
         StartCoroutine(FlashRed());
     }
     void ReloadCurrentScene()
