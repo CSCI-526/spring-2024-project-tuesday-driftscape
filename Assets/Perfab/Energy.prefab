@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8379799960485946639}
   - component: {fileID: 7309509569848848761}
+  - component: {fileID: -2740937963338024239}
   m_Layer: 0
   m_Name: Energy
   m_TagString: Untagged
@@ -84,3 +85,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-2740937963338024239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4153509108143669655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd32f577f45f4e76ad55956da8104e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  incHealth: 10
+  player: {fileID: 6829051932560495118, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
