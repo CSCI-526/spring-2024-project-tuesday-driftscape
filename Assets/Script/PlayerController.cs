@@ -31,14 +31,10 @@ public class PlayerController : MonoBehaviour
     private bool isJump = true;
 
     private Color originalColor;
-    public Transform[] enemies;
     public Transform[] dummyenemies;
     public Vector2[] dummyenemyPos;
     private bool canMoveFreely = false;
     public float FreeFlytime;
-
-
-    public GameObject[] foods;
 
 
     // private bool isPaused = false;
@@ -115,21 +111,6 @@ public class PlayerController : MonoBehaviour
             Vector2 movement = new Vector2(moveHorizontal, moveVertical) * speed;
             rb2d.velocity = movement;
         }
-        if (enemies.Length > 0)
-        {
-            foreach (Transform enemy in enemies)
-            {
-                if(enemy != null){
-                    if (Vector3.Distance(enemy.position, transform.position) < 1.05f)
-                    {
-                        health -= 1;
-                        StartCoroutine(FlashRed());
-                    }
-                }
-
-            }
-        }
-        eatFood();
         if (dummyenemies.Length > 0)
         {
             // dummy enemy move left and right around its original position
@@ -208,19 +189,16 @@ public class PlayerController : MonoBehaviour
         Vector2 movement = new Vector2(moveHorizontal * speed, rb2d.velocity.y);
         rb2d.velocity = movement;
     }
-    void eatFood()
+
+    public void AddHealth(int amount)
     {
-        if (foods.Length > 0)
-        {
-            foreach (GameObject food in foods)
-            {
-                if (food.activeSelf && Vector3.Distance(food.transform.position, transform.position) < 1.05f)
-                {
-                    health = Math.Min(incHealth + health, 100);
-                    food.SetActive(false);
-                }
-            }
-        }
+        health = Mathf.Min(health + amount, 100);
+        Debug.Log("AddHealth, health:"+health);
+    }
+    public void GetAttacked(int amount){
+        TakeDamage(amount);
+        Debug.Log("Be attacked， health:"+health);
+        StartCoroutine(FlashRed());
     }
     void ReloadCurrentScene()
     {
@@ -333,7 +311,6 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        Debug.Log("Missle attack:"+health);
         StartCoroutine(FlashRed());
     }
 
