@@ -131,15 +131,19 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(TemporaryLoseGravity(FreeFlytime));
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && !hasFake)
         {
             hasFake = true;
             fgoal.SetActive(true);
             foreach (Navigation navi in navis)
             {
-                navi.getconfused = true;
+                if (navi && navi.agent.isActiveAndEnabled){
+                    navi.getconfused = true;
+                    navi.agent.SetDestination(fbuild.position);
+                } 
             }
             StartCoroutine(FakeGoal(3f));
+            TakeDamage(decHealth);
         }
         if (health <= 0 || Input.GetKeyDown(KeyCode.Escape))
         {
@@ -271,15 +275,15 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator FakeGoal(float duration)
     {
+        yield return new WaitForSeconds(duration);
         foreach (Navigation navi in navis)
         {
-            navi.agent.SetDestination(fbuild.position);
-            yield return new WaitForSeconds(duration);
-            navi.getconfused = false;
-            fgoal.SetActive(false);
-            hasFake = false;
-            health -= decHealth;
+            if (navi && navi.agent.isActiveAndEnabled){
+                navi.getconfused = false;
+            }
         }
+        fgoal.SetActive(false);
+        hasFake = false;
     }
 
     IEnumerator FlashRed()
