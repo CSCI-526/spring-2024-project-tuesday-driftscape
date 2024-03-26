@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    public string levelName;
     // Start is called before the first frame update
     public void LoadSceneByName()
     {
-        SceneManager.LoadScene("level1");
+        SceneManager.LoadScene(levelName);
     }
 
 }

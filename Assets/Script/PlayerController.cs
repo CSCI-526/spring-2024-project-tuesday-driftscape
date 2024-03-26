@@ -53,19 +53,14 @@ public class PlayerController : MonoBehaviour
     // UI
     public GameObject homeButton;
     public GameObject restartButton; // 重新开始按钮
-    public GameObject nextButton; 
+    public GameObject nextButton;
 
     void Start()
     {
+        Time.timeScale = 1;
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>(); // ��ȡSpriteRenderer���
-        // analytic = GetComponent<LevelCompleteAnalytics>();
         originalColor = spriteRenderer.color; // ����ԭʼ��ɫ
-        /*success.SetActive(false);
-        restart.SetActive(false);
-        nextlevel.SetActive(false);*/
-        // pauseMenuUI.SetActive(false);
-        // get all dummy positions
         dummyenemyPos = new Vector2[dummyenemies.Length];
         for (int i = 0; i < dummyenemies.Length; i++)
         {
@@ -79,31 +74,23 @@ public class PlayerController : MonoBehaviour
         restartButton.SetActive(false);
         homeButton.SetActive(false);
         nextButton.SetActive(false);
-}
+    }
 
     void Update()
     {
 
-        // Debug.Log(health);
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = canMoveFreely ? Input.GetAxis("Vertical") : 0;
         if (!hasFake)
         {
             fbuild.position = transform.position;
         }
-        // if (Input.GetKeyDown(KeyCode.Escape))
-        // {
-        //     TogglePause();
-        // }
-        // �ۼ�ʱ��
         timer += Time.deltaTime;
 
         // ÿ����ʱ���ﵽ�򳬹�1��ʱ
         if (timer >= 1f)
         {
-            // ��������ֵ
             health -= 1;
-            // ���ü�ʱ��
             timer = 0f;
         }
         if (canMoveFreely)
@@ -116,15 +103,21 @@ public class PlayerController : MonoBehaviour
             // dummy enemy move left and right around its original position
             foreach (Transform dummyenemy in dummyenemies)
             {
-                dummyenemy.position = dummyenemyPos[Array.IndexOf(dummyenemies, dummyenemy)] + new Vector2(Mathf.Sin(Time.time), 0)*3;
+                if (dummyenemy != null)
+                {
+                    dummyenemy.position = dummyenemyPos[Array.IndexOf(dummyenemies, dummyenemy)] + new Vector2(Mathf.Sin(Time.time), 0) * 3;
+                }
             }
 
             foreach (Transform dummyenemy in dummyenemies)
             {
-                if (Vector3.Distance(dummyenemy.position, transform.position) < 1.05f)
+                if (dummyenemy != null)
                 {
-                    health -= 1;
-                    StartCoroutine(FlashRed());
+                    if (Vector3.Distance(dummyenemy.position, transform.position) < 1.05f)
+                    {
+                        health -= 1;
+                        StartCoroutine(FlashRed());
+                    }
                 }
             }
         }
@@ -148,7 +141,7 @@ public class PlayerController : MonoBehaviour
             }
             StartCoroutine(FakeGoal(3f));
         }
-        if (health <= 0)
+        if (health <= 0 || Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("health=0");
             restartButton.SetActive(true); // 显示重新开始按钮
@@ -156,19 +149,7 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 0;
             float timeElapsed = Time.time;
             analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed);
-
-            //restart.SetActive(true);
         }
-        /*if (restart.activeSelf && Input.GetKeyDown(KeyCode.F))
-        {
-            ReloadCurrentScene();
-        }
-        if (nextlevel.activeSelf && Input.GetKeyDown(KeyCode.Return))
-        {
-            float timeElapsed = Time.time;
-            //analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed);
-            ReloadNextScene();
-        }*/
 
         if (Input.GetMouseButtonDown(0)) // Left mouse button clicked
         {
@@ -193,11 +174,11 @@ public class PlayerController : MonoBehaviour
     public void AddHealth(int amount)
     {
         health = Mathf.Min(health + amount, 100);
-        Debug.Log("AddHealth, health:"+health);
+        Debug.Log("AddHealth, health:" + health);
     }
-    public void GetAttacked(int amount){
+    public void GetAttacked(int amount)
+    {
         TakeDamage(amount);
-        Debug.Log("Be attacked， health:"+health);
         StartCoroutine(FlashRed());
     }
     void ReloadCurrentScene()
@@ -256,7 +237,7 @@ public class PlayerController : MonoBehaviour
             // 多帧减少一次生命值
             if (frameCounter % 4 == 0)
             {
-                TakeDamage(1); 
+                TakeDamage(1);
             }
             frameCounter++;
         }
@@ -281,7 +262,7 @@ public class PlayerController : MonoBehaviour
     {
         rb2d.gravityScale = 0; // ���ʧȥ����
         canMoveFreely = true; // ������������ƶ�
-        rb2d.velocity = new Vector2(rb2d.velocity.x, 20f);
+        rb2d.velocity = new Vector2(rb2d.velocity.x, rb2d.velocity.x + 20f);
         yield return new WaitForSeconds(duration); // �ȴ�ָ��ʱ��
         rb2d.gravityScale = 1; // �ָ�����
         canMoveFreely = false; // �ָ������ƶ�����
@@ -325,11 +306,11 @@ public class PlayerController : MonoBehaviour
 
         Vector2 direction = (mousePosition - transform.position).normalized;
 
-        if(Time.time > nextFire)//让子弹发射有间隔，现在设置为0.0秒
+        if (Time.time > nextFire)//让子弹发射有间隔，现在设置为0.0秒
         {
             nextFire = Time.time + 0.0F;//子弹时间间隔设置为0.0秒
             bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-            
+
             BulletController bulletController = bullet.GetComponent<BulletController>();
             if (bulletController != null)
             {

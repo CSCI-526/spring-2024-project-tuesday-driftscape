@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; // 引入UI命名空间
+using UnityEngine.SceneManagement; // 引入场景管理库
 
 public class UIButton : MonoBehaviour
 {
     public Button Home;
     public Button Restart;
     public Button Next;
+    public string nextLevel;
 
     void Start()
     {
@@ -18,19 +20,18 @@ public class UIButton : MonoBehaviour
 
     void OnClickButton1()
     {
-        Debug.Log("Button 1 was clicked.");
-        // 在这里添加Button1的逻辑
+
+        SceneManager.LoadScene("MainMenu");
     }
 
     void OnClickButton2()
     {
-        Debug.Log("Button 2 was clicked.");
-        // 在这里添加Button2的逻辑
+        string sceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(sceneName);
     }
 
     void OnClickButton3()
     {
-        Debug.Log("Button 3 was clicked.");
-        // 在这里添加Button3的逻辑
+        SceneManager.LoadScene(nextLevel);
     }
 }
