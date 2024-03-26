@@ -837,6 +837,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3048085049072328158, guid: 9e5986c5bcfb0754d839ecdc359b0a6a, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048085049072328158, guid: 9e5986c5bcfb0754d839ecdc359b0a6a, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048085049072328158, guid: 9e5986c5bcfb0754d839ecdc359b0a6a, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5828139608853239394, guid: 9e5986c5bcfb0754d839ecdc359b0a6a, type: 3}
       propertyPath: m_Name
       value: EnemyWalk (1)
@@ -964,6 +976,18 @@ PrefabInstance:
     - target: {fileID: 348588681000435877, guid: 9e5986c5bcfb0754d839ecdc359b0a6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048085049072328158, guid: 9e5986c5bcfb0754d839ecdc359b0a6a, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048085049072328158, guid: 9e5986c5bcfb0754d839ecdc359b0a6a, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048085049072328158, guid: 9e5986c5bcfb0754d839ecdc359b0a6a, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5828139608853239394, guid: 9e5986c5bcfb0754d839ecdc359b0a6a, type: 3}
       propertyPath: m_Name
