@@ -2611,7 +2611,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.49449447}
   m_AnchorMax: {x: 0.50536674, y: 0.5}
-  m_AnchoredPosition: {x: -46.73, y: -2.46}
+  m_AnchoredPosition: {x: -46.73, y: -4.76}
   m_SizeDelta: {x: 5.508, y: 2.1735}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1084275246
@@ -5953,7 +5953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: navis.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: enemies.Array.size
@@ -6007,6 +6007,10 @@ PrefabInstance:
       propertyPath: navis.Array.data[2]
       value: 
       objectReference: {fileID: 881828983}
+    - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
+      propertyPath: navis.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: enemies.Array.data[0]
       value: 
