@@ -116,15 +116,20 @@ public class PlayerController : MonoBehaviour
             // dummy enemy move left and right around its original position
             foreach (Transform dummyenemy in dummyenemies)
             {
+                if(dummyenemy != null){
                 dummyenemy.position = dummyenemyPos[Array.IndexOf(dummyenemies, dummyenemy)] + new Vector2(Mathf.Sin(Time.time), 0)*3;
+                }
             }
 
             foreach (Transform dummyenemy in dummyenemies)
             {
-                if (Vector3.Distance(dummyenemy.position, transform.position) < 1.05f)
+                if (dummyenemy != null)
                 {
-                    health -= 1;
-                    StartCoroutine(FlashRed());
+                    if (Vector3.Distance(dummyenemy.position, transform.position) < 1.05f)
+                    {
+                        health -= 1;
+                        StartCoroutine(FlashRed());
+                    }
                 }
             }
         }
