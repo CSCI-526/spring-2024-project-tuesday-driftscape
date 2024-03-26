@@ -11,12 +11,4 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("level1");
     }
 
-
-    public void CompleteLevel()
-    {
-        // Assuming the current scene is Level 1, load Level 2
-        // You may want to add logic to check the current level and load accordingly
-
-        SceneManager.LoadScene("level2");
-    }
 }
