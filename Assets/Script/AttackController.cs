@@ -14,11 +14,11 @@ public class AttackController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //if player tagged position distance < 1.05f
+        // playercontroller getattacked
     }
     public void Hurt()
     {
-        Debug.Log(1);
         Instantiate(energyPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

@@ -236,7 +236,7 @@ public class PlayerController : MonoBehaviour
             isJump = true;
         }
         // 检查是否与Hurt标签的对象保持碰撞
-        if (other.gameObject.CompareTag("Hurt"))
+        if (other.gameObject.CompareTag("Hurt")|| other.gameObject.CompareTag("Enemy"))
         {
             // 多帧减少一次生命值
             if (frameCounter % 4 == 0)
@@ -310,9 +310,9 @@ public class PlayerController : MonoBehaviour
 
         Vector2 direction = (mousePosition - transform.position).normalized;
 
-        if (Time.time > nextFire)//让子弹发射有间隔，现在设置为0.0秒
+        if (Time.time > nextFire)
         {
-            nextFire = Time.time + 0.0F;//子弹时间间隔设置为0.0秒
+            nextFire = Time.time + 5.0F;//子弹时间间隔设置为5.0秒
             bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
 
             BulletController bulletController = bullet.GetComponent<BulletController>();
