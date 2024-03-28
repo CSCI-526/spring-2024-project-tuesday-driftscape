@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     private float timer = 0f; // ��ʱ��
     public GameObject fgoal;
 
+    public float nextfly = 0.0F;
+    public float nextfake = 0.0F;
     public Navigation[] navis;
     public Transform fbuild;
 
@@ -127,13 +129,11 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
         // if input q, then player will lose gravity for 3 seconds
-        float nextfly = 0.0F;
         if (Input.GetKeyDown(KeyCode.E)&& Time.time > nextfly)
         {
             nextfly = Time.time + 6.0F;
             StartCoroutine(TemporaryLoseGravity(FreeFlytime));
         }
-        float nextfake = 0.0F;
         if (Input.GetKeyDown(KeyCode.Q) && !hasFake && Time.time > nextfake)
         {
             nextfake = Time.time + 6.0F;
