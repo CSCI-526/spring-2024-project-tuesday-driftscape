@@ -127,12 +127,16 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
         // if input q, then player will lose gravity for 3 seconds
-        if (Input.GetKeyDown(KeyCode.E))
+        float nextfly = 0.0F;
+        if (Input.GetKeyDown(KeyCode.E)&& Time.time > nextfly)
         {
+            nextfly = Time.time + 6.0F;
             StartCoroutine(TemporaryLoseGravity(FreeFlytime));
         }
-        if (Input.GetKeyDown(KeyCode.Q) && !hasFake)
+        float nextfake = 0.0F;
+        if (Input.GetKeyDown(KeyCode.Q) && !hasFake && Time.time > nextfake)
         {
+            nextfake = Time.time + 6.0F;
             hasFake = true;
             fgoal.SetActive(true);
             foreach (Navigation navi in navis)
@@ -307,6 +311,7 @@ public class PlayerController : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0f; // Ensure z-coordinate is appropriate for 2D
 
+        health -= decHealth;
         Vector2 direction = (mousePosition - transform.position).normalized;
 
         if (Time.time > nextFire)
