@@ -266,11 +266,11 @@ public class PlayerController : MonoBehaviour
     {
         rb2d.gravityScale = 0; // ���ʧȥ����
         canMoveFreely = true; // ������������ƶ�
+        health -= decHealth;
         rb2d.velocity = new Vector2(rb2d.velocity.x, rb2d.velocity.x + 20f);
         yield return new WaitForSeconds(duration); // �ȴ�ָ��ʱ��
         rb2d.gravityScale = 1; // �ָ�����
         canMoveFreely = false; // �ָ������ƶ�����
-        health -= decHealth;
     }
 
     IEnumerator FakeGoal(float duration)
