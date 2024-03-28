@@ -4116,6 +4116,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1936577863}
     - target: {fileID: 2466772282744044905, guid: 15f03ad41abc0874eaed40885769d13a, type: 3}
+      propertyPath: coolDown
+      value: 
+      objectReference: {fileID: 1981369510}
+    - target: {fileID: 2466772282744044905, guid: 15f03ad41abc0874eaed40885769d13a, type: 3}
+      propertyPath: coolDown2
+      value: 
+      objectReference: {fileID: 1981369509}
+    - target: {fileID: 2466772282744044905, guid: 15f03ad41abc0874eaed40885769d13a, type: 3}
+      propertyPath: coolDown3
+      value: 
+      objectReference: {fileID: 1981369508}
+    - target: {fileID: 2466772282744044905, guid: 15f03ad41abc0874eaed40885769d13a, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 532386622}
@@ -5162,6 +5174,14 @@ PrefabInstance:
       value: HealthBar
       objectReference: {fileID: 0}
     - target: {fileID: 5922139276349104862, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: coolDown
+      value: 
+      objectReference: {fileID: 1981369510}
+    - target: {fileID: 5922139276349104862, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: coolDown2
+      value: 
+      objectReference: {fileID: 1981369508}
+    - target: {fileID: 5922139276349104862, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1936577864}
@@ -5170,6 +5190,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+--- !u!224 &1981369508 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7731098309364155670, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+  m_PrefabInstance: {fileID: 1981369507}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1981369509 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 877134471280978084, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+  m_PrefabInstance: {fileID: 1981369507}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1981369510 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3030967153269270074, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+  m_PrefabInstance: {fileID: 1981369507}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2007847177 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4153509108143669655, guid: 0431417e1f4852b4fb4c84b8a20de511, type: 3}

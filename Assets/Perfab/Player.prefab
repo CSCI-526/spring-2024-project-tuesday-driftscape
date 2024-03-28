@@ -163,19 +163,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 7.5
   speed: 5
+  originalSpeed: 5
   jumpKey: 32
+  maxHealth: 100
   health: 100
   decHealth: 5
   incHealth: 5
   fgoal: {fileID: 0}
+  nextfly: 0
+  nextfake: 0
   navis: []
   fbuild: {fileID: 0}
-  enemies: []
   dummyenemies: []
+  dummyenemyPos: []
   FreeFlytime: 1.5
-  success: {fileID: 0}
-  restart: {fileID: 0}
-  nextlevel: {fileID: 0}
-  foods: []
-  nextsceneName: 
-  pauseMenuUI: {fileID: 0}
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  homeButton: {fileID: 0}
+  restartButton: {fileID: 0}
+  nextButton: {fileID: 0}
+  nextFire: 0
