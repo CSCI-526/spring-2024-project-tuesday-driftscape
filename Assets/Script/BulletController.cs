@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
 
-    public float speed = 5f;//子弹速度
+    public float speed = 10f;//子弹速度
     public Rigidbody2D rig;
 
     void Start()

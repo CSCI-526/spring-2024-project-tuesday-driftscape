@@ -6,6 +6,7 @@ public class AttackController : MonoBehaviour
 {
     public int decHealth = 10;
     public GameObject energyPrefab;
+    public int health = 100;
     void Start()
     {
 
@@ -19,8 +20,12 @@ public class AttackController : MonoBehaviour
     }
     public void Hurt()
     {
-        Instantiate(energyPrefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        health -= 51;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            Instantiate(energyPrefab, transform.position, Quaternion.identity);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

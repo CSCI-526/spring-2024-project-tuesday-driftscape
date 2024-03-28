@@ -147,7 +147,6 @@ public class PlayerController : MonoBehaviour
         }
         if (health <= 0 || Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("health=0");
             restartButton.SetActive(true); // 显示重新开始按钮
             homeButton.SetActive(true); // 显示重新开始按钮
             Time.timeScale = 0;
