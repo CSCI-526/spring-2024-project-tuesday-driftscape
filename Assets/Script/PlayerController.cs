@@ -304,7 +304,7 @@ public class PlayerController : MonoBehaviour
 
 
     GameObject bullet;
-    private float nextFire = 0.0F;
+    public float nextFire = 0.0F;
     void Shoot()
     {
         // 子弹方向
