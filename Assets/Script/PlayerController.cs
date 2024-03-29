@@ -311,14 +311,14 @@ public class PlayerController : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0f; // Ensure z-coordinate is appropriate for 2D
 
-        health -= decHealth;
+        
         Vector2 direction = (mousePosition - transform.position).normalized;
 
         if (Time.time > nextFire)
         {
             nextFire = Time.time + 5.0F;//子弹时间间隔设置为5.0秒
             bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-
+            health -= decHealth;
             BulletController bulletController = bullet.GetComponent<BulletController>();
             if (bulletController != null)
             {
