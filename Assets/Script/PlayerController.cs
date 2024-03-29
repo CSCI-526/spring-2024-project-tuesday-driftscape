@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
     private LevelCompleteAnalytics analytic;
     private bool isGrounded;
     private SpriteRenderer spriteRenderer;
-    private bool isJump = true;
 
     private Color originalColor;
     public Transform[] dummyenemies;
@@ -132,6 +131,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)&& Time.time > nextfly)
         {
             nextfly = Time.time + 6.0F;
+            Vector3 newPosition = transform.position;
+            newPosition.y += 1.0f;
+            transform.position = newPosition;
             StartCoroutine(TemporaryLoseGravity(FreeFlytime));
         }
         if (Input.GetKeyDown(KeyCode.Q) && !hasFake && Time.time > nextfake)
@@ -166,7 +168,6 @@ public class PlayerController : MonoBehaviour
     }
     void Jump()
     {
-        isJump = true;
         Vector2 v = new Vector2(Physics2D.gravity.x, -Physics2D.gravity.y / 9.8f);
         rb2d.AddForce(v * jumpForce, ForceMode2D.Impulse);
 
@@ -210,8 +211,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            isGrounded = true; // �Ӵ�����ʱ���µ���״̬
-            isJump = true;
+            isGrounded = true;
 
         }
         if (other.gameObject.CompareTag("Goal")) // ����Ƿ���ײ��Goal
@@ -236,7 +236,6 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Hurt"))
         {
             isGrounded = true;
-            isJump = true;
         }
         // 检查是否与Hurt标签的对象保持碰撞
         if (other.gameObject.CompareTag("Hurt")|| other.gameObject.CompareTag("Enemy"))
@@ -251,7 +250,7 @@ public class PlayerController : MonoBehaviour
     }
     void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Hurt"))
         {
             isGrounded = false; // �뿪����ʱ���µ���״̬
         }
@@ -305,6 +304,7 @@ public class PlayerController : MonoBehaviour
 
     GameObject bullet;
     public float nextFire = 0.0F;
+    public float fireCD = 3.0f;
     void Shoot()
     {
         // 子弹方向
@@ -316,7 +316,7 @@ public class PlayerController : MonoBehaviour
 
         if (Time.time > nextFire)
         {
-            nextFire = Time.time + 5.0F;//子弹时间间隔设置为5.0秒
+            nextFire = Time.time + fireCD;//子弹时间间隔设置为5.0秒
             bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
             health -= decHealth;
             BulletController bulletController = bullet.GetComponent<BulletController>();

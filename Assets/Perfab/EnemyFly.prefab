@@ -14,11 +14,10 @@ GameObject:
   - component: {fileID: 6261592608960439522}
   - component: {fileID: 4446264599859980887}
   - component: {fileID: -4359070801497920036}
-  - component: {fileID: 3505604718186471093}
   - component: {fileID: 8560895165295157992}
   m_Layer: 0
   m_Name: EnemyFly
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,20 +188,6 @@ MonoBehaviour:
   player: {fileID: 0}
   agent: {fileID: 0}
   getconfused: 0
---- !u!114 &3505604718186471093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3223298781994107603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3b5f8d0a79ca5b4888febca91e4db63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  decHealth: 10
-  energyPrefab: {fileID: 4153509108143669655, guid: 0431417e1f4852b4fb4c84b8a20de511, type: 3}
 --- !u!114 &8560895165295157992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,3 +202,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   decHealth: 5
   energyPrefab: {fileID: 4153509108143669655, guid: 0431417e1f4852b4fb4c84b8a20de511, type: 3}
+  health: 100
