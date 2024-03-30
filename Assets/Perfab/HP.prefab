@@ -70,7 +70,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -4}
+  m_AnchoredPosition: {x: 15.780001, y: 14.139999}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1582635527370245002
@@ -87,6 +87,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 2477156703325527145}
   playerController: {fileID: 0}
+  coolDown: {fileID: 0}
+  coolDown2: {fileID: 0}
+  coolDown3: {fileID: 0}
+  coolDownText: {fileID: 0}
 --- !u!1 &1715839556971596255
 GameObject:
   m_ObjectHideFlags: 0
