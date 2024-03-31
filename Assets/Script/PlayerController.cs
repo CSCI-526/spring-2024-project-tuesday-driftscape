@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     private float timer = 0f; // ��ʱ��
     public GameObject fgoal;
 
+    public float nextfly = 0.0F;
+    public float nextfake = 0.0F;
     public Navigation[] navis;
     public Transform fbuild;
 
@@ -28,7 +30,6 @@ public class PlayerController : MonoBehaviour
     private LevelCompleteAnalytics analytic;
     private bool isGrounded;
     private SpriteRenderer spriteRenderer;
-    private bool isJump = true;
 
     private Color originalColor;
     public Transform[] dummyenemies;
@@ -53,19 +54,14 @@ public class PlayerController : MonoBehaviour
     // UI
     public GameObject homeButton;
     public GameObject restartButton; // 重新开始按钮
-    public GameObject nextButton; 
+    public GameObject nextButton;
 
     void Start()
     {
+        Time.timeScale = 1;
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>(); // ��ȡSpriteRenderer���
-        // analytic = GetComponent<LevelCompleteAnalytics>();
         originalColor = spriteRenderer.color; // ����ԭʼ��ɫ
-        /*success.SetActive(false);
-        restart.SetActive(false);
-        nextlevel.SetActive(false);*/
-        // pauseMenuUI.SetActive(false);
-        // get all dummy positions
         dummyenemyPos = new Vector2[dummyenemies.Length];
         for (int i = 0; i < dummyenemies.Length; i++)
         {
@@ -79,31 +75,23 @@ public class PlayerController : MonoBehaviour
         restartButton.SetActive(false);
         homeButton.SetActive(false);
         nextButton.SetActive(false);
-}
+    }
 
     void Update()
     {
 
-        // Debug.Log(health);
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = canMoveFreely ? Input.GetAxis("Vertical") : 0;
         if (!hasFake)
         {
             fbuild.position = transform.position;
         }
-        // if (Input.GetKeyDown(KeyCode.Escape))
-        // {
-        //     TogglePause();
-        // }
-        // �ۼ�ʱ��
         timer += Time.deltaTime;
 
         // ÿ����ʱ���ﵽ�򳬹�1��ʱ
         if (timer >= 1f)
         {
-            // ��������ֵ
             health -= 1;
-            // ���ü�ʱ��
             timer = 0f;
         }
         if (canMoveFreely)
@@ -116,8 +104,9 @@ public class PlayerController : MonoBehaviour
             // dummy enemy move left and right around its original position
             foreach (Transform dummyenemy in dummyenemies)
             {
-                if(dummyenemy != null){
-                dummyenemy.position = dummyenemyPos[Array.IndexOf(dummyenemies, dummyenemy)] + new Vector2(Mathf.Sin(Time.time), 0)*3;
+                if (dummyenemy != null)
+                {
+                    dummyenemy.position = dummyenemyPos[Array.IndexOf(dummyenemies, dummyenemy)] + new Vector2(Mathf.Sin(Time.time), 0) * 3;
                 }
             }
 
@@ -139,41 +128,37 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
         // if input q, then player will lose gravity for 3 seconds
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E)&& Time.time > nextfly)
         {
+            nextfly = Time.time + 6.0F;
+            Vector3 newPosition = transform.position;
+            newPosition.y += 1.0f;
+            transform.position = newPosition;
             StartCoroutine(TemporaryLoseGravity(FreeFlytime));
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && !hasFake && Time.time > nextfake)
         {
+            nextfake = Time.time + 6.0F;
             hasFake = true;
             fgoal.SetActive(true);
             foreach (Navigation navi in navis)
             {
-                navi.getconfused = true;
+                if (navi && navi.agent.isActiveAndEnabled){
+                    navi.getconfused = true;
+                    navi.agent.SetDestination(fbuild.position);
+                } 
             }
             StartCoroutine(FakeGoal(3f));
+            TakeDamage(decHealth);
         }
-        if (health <= 0)
+        if (health <= 0 || Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("health=0");
             restartButton.SetActive(true); // 显示重新开始按钮
             homeButton.SetActive(true); // 显示重新开始按钮
             Time.timeScale = 0;
             float timeElapsed = Time.time;
             analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed);
-
-            //restart.SetActive(true);
         }
-        /*if (restart.activeSelf && Input.GetKeyDown(KeyCode.F))
-        {
-            ReloadCurrentScene();
-        }
-        if (nextlevel.activeSelf && Input.GetKeyDown(KeyCode.Return))
-        {
-            float timeElapsed = Time.time;
-            //analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed);
-            ReloadNextScene();
-        }*/
 
         if (Input.GetMouseButtonDown(0)) // Left mouse button clicked
         {
@@ -183,7 +168,6 @@ public class PlayerController : MonoBehaviour
     }
     void Jump()
     {
-        isJump = true;
         Vector2 v = new Vector2(Physics2D.gravity.x, -Physics2D.gravity.y / 9.8f);
         rb2d.AddForce(v * jumpForce, ForceMode2D.Impulse);
 
@@ -198,9 +182,10 @@ public class PlayerController : MonoBehaviour
     public void AddHealth(int amount)
     {
         health = Mathf.Min(health + amount, 100);
-        Debug.Log("AddHealth, health:"+health);
+        Debug.Log("AddHealth, health:" + health);
     }
-    public void GetAttacked(int amount){
+    public void GetAttacked(int amount)
+    {
         TakeDamage(amount);
         StartCoroutine(FlashRed());
     }
@@ -226,8 +211,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            isGrounded = true; // �Ӵ�����ʱ���µ���״̬
-            isJump = true;
+            isGrounded = true;
 
         }
         if (other.gameObject.CompareTag("Goal")) // ����Ƿ���ײ��Goal
@@ -252,22 +236,21 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Hurt"))
         {
             isGrounded = true;
-            isJump = true;
         }
         // 检查是否与Hurt标签的对象保持碰撞
-        if (other.gameObject.CompareTag("Hurt"))
+        if (other.gameObject.CompareTag("Hurt")|| other.gameObject.CompareTag("Enemy"))
         {
             // 多帧减少一次生命值
             if (frameCounter % 4 == 0)
             {
-                TakeDamage(1); 
+                TakeDamage(1);
             }
             frameCounter++;
         }
     }
     void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Hurt"))
         {
             isGrounded = false; // �뿪����ʱ���µ���״̬
         }
@@ -285,24 +268,24 @@ public class PlayerController : MonoBehaviour
     {
         rb2d.gravityScale = 0; // ���ʧȥ����
         canMoveFreely = true; // ������������ƶ�
-        rb2d.velocity = new Vector2(rb2d.velocity.x, 20f);
+        health -= decHealth;
+        rb2d.velocity = new Vector2(rb2d.velocity.x, rb2d.velocity.x + 20f);
         yield return new WaitForSeconds(duration); // �ȴ�ָ��ʱ��
         rb2d.gravityScale = 1; // �ָ�����
         canMoveFreely = false; // �ָ������ƶ�����
-        health -= decHealth;
     }
 
     IEnumerator FakeGoal(float duration)
     {
+        yield return new WaitForSeconds(duration);
         foreach (Navigation navi in navis)
         {
-            navi.agent.SetDestination(fbuild.position);
-            yield return new WaitForSeconds(duration);
-            navi.getconfused = false;
-            fgoal.SetActive(false);
-            hasFake = false;
-            health -= decHealth;
+            if (navi && navi.agent.isActiveAndEnabled){
+                navi.getconfused = false;
+            }
         }
+        fgoal.SetActive(false);
+        hasFake = false;
     }
 
     IEnumerator FlashRed()
@@ -320,20 +303,22 @@ public class PlayerController : MonoBehaviour
 
 
     GameObject bullet;
-    private float nextFire = 0.0F;
+    public float nextFire = 0.0F;
+    public float fireCD = 3.0f;
     void Shoot()
     {
         // 子弹方向
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0f; // Ensure z-coordinate is appropriate for 2D
 
+        
         Vector2 direction = (mousePosition - transform.position).normalized;
 
-        if(Time.time > nextFire)//让子弹发射有间隔，现在设置为0.0秒
+        if (Time.time > nextFire)
         {
-            nextFire = Time.time + 0.0F;//子弹时间间隔设置为0.0秒
+            nextFire = Time.time + fireCD;//子弹时间间隔设置为5.0秒
             bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-            
+            health -= decHealth;
             BulletController bulletController = bullet.GetComponent<BulletController>();
             if (bulletController != null)
             {
