@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviour
             homeButton.SetActive(true); // 显示重新开始按钮
             Time.timeScale = 0;
             float timeElapsed = Time.time;
-            analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed);
+            analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed, flytimes, faketimes,health);
         }
 
         if (Input.GetMouseButtonDown(0)) // Left mouse button clicked
@@ -227,7 +227,7 @@ public class PlayerController : MonoBehaviour
             nextButton.SetActive(true); // 显示重新开始按钮
             homeButton.SetActive(true); // 显示重新开始按钮
             float timeElapsed = Time.time - timestart.time;
-            analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed);
+            analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed, flytimes, faketimes, health);
 
 
         }
