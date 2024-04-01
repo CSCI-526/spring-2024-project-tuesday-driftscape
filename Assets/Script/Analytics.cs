@@ -14,7 +14,7 @@ public class LevelCompleteAnalytics : MonoBehaviour
         StartCoroutine(SendLevelCompleteEventCoroutine(levelName, success, timeElapsed));
     }
 
-    private IEnumerator SendLevelCompleteEventCoroutine(string levelName, bool success, float timeElapsed)
+    private IEnumerator SendLevelCompleteEventCoroutine(string levelName, bool success, float timeElapsed, int flytimes, int faketimes)
     {
         Debug.Log(levelName);
         Debug.Log(success);
@@ -23,6 +23,8 @@ public class LevelCompleteAnalytics : MonoBehaviour
         player.levelName = levelName;
         player.success = success;
         player.timeElapsed = timeElapsed;
+        player.flytimes = flytimes;
+        player.faketimes = faketimes;
         string json = JsonUtility.ToJson(player);
 
         yield return RestClient.Post("https://driftspace-default-rtdb.firebaseio.com/.json", json);
@@ -37,5 +39,7 @@ public class PlayerData
     public float timeElapsed;
     public float locationX = 0;
     public float locationY = 0;
+    public int flytimes = 0;
+    public int faketimes = 0;
 
 }

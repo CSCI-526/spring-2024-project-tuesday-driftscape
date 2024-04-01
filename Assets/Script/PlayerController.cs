@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
     public Vector2[] dummyenemyPos;
     private bool canMoveFreely = false;
     public float FreeFlytime;
+    public int flytimes;
+    public int faketimes;
 
 
     // private bool isPaused = false;
@@ -136,6 +138,7 @@ public class PlayerController : MonoBehaviour
             newPosition.y += 1.0f;
             transform.position = newPosition;
             StartCoroutine(TemporaryLoseGravity(FreeFlytime));
+            flytimes++;
         }
         if (Input.GetKeyDown(KeyCode.Q) && !hasFake && Time.time > nextfake)
         {
@@ -151,6 +154,7 @@ public class PlayerController : MonoBehaviour
             }
             StartCoroutine(FakeGoal(3f));
             TakeDamage(decHealth);
+            faketimes++;
         }
         if (health <= 0 || Input.GetKeyDown(KeyCode.Escape))
         {
@@ -194,6 +198,7 @@ public class PlayerController : MonoBehaviour
     {
         Time.timeScale = 1; // �����˶�
         int sceneIndex = SceneManager.GetActiveScene().buildIndex; // ��ȡ��ǰ����������
+        timestart.time = Time.time;
         SceneManager.LoadScene(sceneIndex); // �����������¼��س���
         //possession = 0;
         Vector2 originalGravity = Physics2D.gravity;
@@ -221,7 +226,7 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 0; // ��ֹ����
             nextButton.SetActive(true); // 显示重新开始按钮
             homeButton.SetActive(true); // 显示重新开始按钮
-            float timeElapsed = Time.time;
+            float timeElapsed = Time.time - timestart.time;
             analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed);
 
 
