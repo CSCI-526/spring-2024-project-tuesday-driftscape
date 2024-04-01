@@ -4706,6 +4706,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 194705013838071255, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 194705013838071255, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 543702016280710486, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 877134471280978084, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.19999981
+      objectReference: {fileID: 0}
+    - target: {fileID: 919618060718220332, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919618060718220332, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1275128169081604711, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1980226666880425751, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2134177773798111660, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4798,6 +4830,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 5205104332785713010, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205104332785713010, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5587798282472908388, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5587798282472908388, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5922139276349104862, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
       propertyPath: coolDown
       value: 
@@ -4818,6 +4866,10 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1936577864}
+    - target: {fileID: 6798377948966760811, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

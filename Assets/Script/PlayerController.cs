@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using System.Diagnostics;
 
 
 
@@ -183,7 +184,7 @@ public class PlayerController : MonoBehaviour
     public void AddHealth(int amount)
     {
         health = Mathf.Min(health + amount, 100);
-        Debug.Log("AddHealth, health:" + health);
+       // Debug.Log("AddHealth, health:" + health);
     }
     public void GetAttacked(int amount)
     {
@@ -317,7 +318,7 @@ public class PlayerController : MonoBehaviour
 
         if (Time.time > nextFire)
         {
-            nextFire = Time.time + fireCD;//子弹时间间隔设置为5.0秒
+            nextFire = Time.time + fireCD;//子弹时间间隔设置为3.0秒
             bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
             health -= decHealth;
             BulletController bulletController = bullet.GetComponent<BulletController>();
