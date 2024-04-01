@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;  // TextMeshPro -> HP Value Text
 using UnityEngine;
 using UnityEngine.UI;
+
 
 public class HealthBar : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class HealthBar : MonoBehaviour
     public Transform coolDown;
     public Transform coolDown2;
     public Transform coolDown3;
+    public TextMeshProUGUI healthText; // HP Text
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +25,9 @@ public class HealthBar : MonoBehaviour
     {
         healthBar.maxValue = playerController.maxHealth;
         healthBar.value = playerController.health;
-        if(playerController.nextfly<Time.time)
+        healthText.text = $"{playerController.health}/{playerController.maxHealth}";
+
+        if (playerController.nextfly<Time.time)
         {
             coolDown.gameObject.SetActive(true);
         }

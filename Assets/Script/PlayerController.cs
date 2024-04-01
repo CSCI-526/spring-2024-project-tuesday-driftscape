@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using System;
 
 
+
 public class PlayerController : MonoBehaviour
 {
     public float jumpForce; // ��Ծ����
