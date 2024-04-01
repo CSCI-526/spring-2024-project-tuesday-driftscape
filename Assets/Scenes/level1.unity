@@ -398,6 +398,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8288628302721254153, guid: 9dc4c4f6236c38b40b219a0d79a0406c, type: 3}
   m_PrefabInstance: {fileID: 123514074}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &196892646 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8701325031793569528, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+  m_PrefabInstance: {fileID: 1472628762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &205550600 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7731098309364155670, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
@@ -2642,6 +2653,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1275128169081604711, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2134177773798111660, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2766,6 +2781,10 @@ PrefabInstance:
       propertyPath: coolDown3
       value: 
       objectReference: {fileID: 205550600}
+    - target: {fileID: 5922139276349104862, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 196892646}
     - target: {fileID: 5922139276349104862, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
       propertyPath: coolDownText
       value: 

@@ -91,7 +91,7 @@ MonoBehaviour:
   coolDown: {fileID: 0}
   coolDown2: {fileID: 0}
   coolDown3: {fileID: 0}
-  healthText: {fileID: 0}
+  healthText: {fileID: 4546487078329339820}
 --- !u!1 &1715839556971596255
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,6 +540,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 743db245b05753a4a9a4e6952c49459c, type: 3}
+--- !u!114 &4546487078329339820 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 554507113645144412, guid: 743db245b05753a4a9a4e6952c49459c, type: 3}
+  m_PrefabInstance: {fileID: 4083177858213066480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5097610361441293135 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9084892109685171647, guid: 743db245b05753a4a9a4e6952c49459c, type: 3}
