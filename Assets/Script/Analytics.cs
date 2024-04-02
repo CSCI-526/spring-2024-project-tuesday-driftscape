@@ -6,12 +6,12 @@ using System;
 
 public class LevelCompleteAnalytics : MonoBehaviour
 {
-    public void SendLevelCompleteEvent(string levelName, bool success, float timeElapsed)
+    public void SendLevelCompleteEvent(string levelName, bool success, float timeElapsed, int flytimes, int faketimes, int health)
     {
         Debug.Log(levelName);
         Debug.Log(success);
         Debug.Log(timeElapsed);
-        StartCoroutine(SendLevelCompleteEventCoroutine(levelName, success, timeElapsed));
+        StartCoroutine(SendLevelCompleteEventCoroutine(levelName, success, timeElapsed, flytimes, faketimes, health));
     }
 
     private IEnumerator SendLevelCompleteEventCoroutine(string levelName, bool success, float timeElapsed, int flytimes, int faketimes, int health)

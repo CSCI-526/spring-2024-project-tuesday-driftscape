@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     public Transform firePoint; // Transform where bullets will be instantiated
 
 
-    public Time timestart;
+    public float timestart;
     // 当前帧计数器
     private int frameCounter = 0;
 
@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        timestart = Time.time;
         Time.timeScale = 1;
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>(); // ��ȡSpriteRenderer���
@@ -198,7 +199,7 @@ public class PlayerController : MonoBehaviour
     {
         Time.timeScale = 1; // �����˶�
         int sceneIndex = SceneManager.GetActiveScene().buildIndex; // ��ȡ��ǰ����������
-        timestart.time = Time.time;
+        timestart = Time.time;
         SceneManager.LoadScene(sceneIndex); // �����������¼��س���
         //possession = 0;
         Vector2 originalGravity = Physics2D.gravity;
@@ -226,7 +227,7 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 0; // ��ֹ����
             nextButton.SetActive(true); // 显示重新开始按钮
             homeButton.SetActive(true); // 显示重新开始按钮
-            float timeElapsed = Time.time - timestart.time;
+            float timeElapsed = Time.time - timestart;
             analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed, flytimes, faketimes, health);
 
 
