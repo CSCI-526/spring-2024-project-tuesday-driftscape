@@ -6,15 +6,15 @@ using System;
 
 public class LevelCompleteAnalytics : MonoBehaviour
 {
-    public void SendLevelCompleteEvent(string levelName, bool success, float timeElapsed, int flytimes, int faketimes, int health)
+    public void SendLevelCompleteEvent(string levelName, bool success, float timeElapsed, int flytimes, int faketimes, int health, float locationX, float locationY)
     {
         Debug.Log(levelName);
         Debug.Log(success);
         Debug.Log(timeElapsed);
-        StartCoroutine(SendLevelCompleteEventCoroutine(levelName, success, timeElapsed, flytimes, faketimes, health));
-    }
+        StartCoroutine(SendLevelCompleteEventCoroutine(levelName, success, timeElapsed, flytimes, faketimes, health, locationX, locationY));
+    }   
 
-    private IEnumerator SendLevelCompleteEventCoroutine(string levelName, bool success, float timeElapsed, int flytimes, int faketimes, int health)
+    private IEnumerator SendLevelCompleteEventCoroutine(string levelName, bool success, float timeElapsed, int flytimes, int faketimes, int health, float locationX, float locationY)
     {
         Debug.Log(levelName);
         Debug.Log(success);
@@ -26,6 +26,8 @@ public class LevelCompleteAnalytics : MonoBehaviour
         player.flytimes = flytimes;
         player.faketimes = faketimes;
         player.health = health;
+        player.locationX = locationX;
+        player.locationY = locationY;
         string json = JsonUtility.ToJson(player);
 
         yield return RestClient.Post("https://driftspace-default-rtdb.firebaseio.com/.json", json);
