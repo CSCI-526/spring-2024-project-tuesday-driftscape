@@ -16,7 +16,7 @@ public class HealthBar : MonoBehaviour
     public Image flyImg;                    // fly CD fill image
     public float flyCD = 6.0F;              // fly CD
     public Image shootImg;                  // shoot CD fill image
-    public float shootCD = 3.0F;            // shoot CD 
+    public float shootCD = 2.0F;            // shoot CD 
 
     public PlayerController playerController;
 

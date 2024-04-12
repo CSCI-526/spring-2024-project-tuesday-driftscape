@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8532624998892585543}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,10 +176,14 @@ MonoBehaviour:
   fbuild: {fileID: 0}
   dummyenemies: []
   dummyenemyPos: []
-  FreeFlytime: 1.5
+  FreeFlytime: 2
+  flytimes: 0
+  faketimes: 0
   bulletPrefab: {fileID: 0}
   firePoint: {fileID: 0}
+  timestart: 0
   homeButton: {fileID: 0}
   restartButton: {fileID: 0}
   nextButton: {fileID: 0}
   nextFire: 0
+  fireCD: 3

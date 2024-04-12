@@ -409,11 +409,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &205550600 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7731098309364155670, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
-  m_PrefabInstance: {fileID: 1472628762}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &218285687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1003,7 +998,7 @@ PrefabInstance:
       objectReference: {fileID: 589155299}
     - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: FreeFlytime
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: bulletPrefab
@@ -1937,11 +1932,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
---- !u!224 &1083869852 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 877134471280978084, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
-  m_PrefabInstance: {fileID: 1472628762}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1133172427
 GameObject:
   m_ObjectHideFlags: 0
@@ -2221,11 +2211,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f40fb3e8a69c4cfeb36d85e8e0b032b, type: 3}
---- !u!224 &1270535237 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3030967153269270074, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
-  m_PrefabInstance: {fileID: 1472628762}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1316111392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2374,15 +2359,15 @@ PrefabInstance:
     - target: {fileID: 2466772282744044905, guid: 15f03ad41abc0874eaed40885769d13a, type: 3}
       propertyPath: coolDown
       value: 
-      objectReference: {fileID: 1270535237}
+      objectReference: {fileID: 0}
     - target: {fileID: 2466772282744044905, guid: 15f03ad41abc0874eaed40885769d13a, type: 3}
       propertyPath: coolDown2
       value: 
-      objectReference: {fileID: 1083869852}
+      objectReference: {fileID: 0}
     - target: {fileID: 2466772282744044905, guid: 15f03ad41abc0874eaed40885769d13a, type: 3}
       propertyPath: coolDown3
       value: 
-      objectReference: {fileID: 205550600}
+      objectReference: {fileID: 0}
     - target: {fileID: 2466772282744044905, guid: 15f03ad41abc0874eaed40885769d13a, type: 3}
       propertyPath: healthBar
       value: 
@@ -2772,15 +2757,15 @@ PrefabInstance:
     - target: {fileID: 5922139276349104862, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
       propertyPath: coolDown
       value: 
-      objectReference: {fileID: 1270535237}
+      objectReference: {fileID: 0}
     - target: {fileID: 5922139276349104862, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
       propertyPath: coolDown2
       value: 
-      objectReference: {fileID: 1083869852}
+      objectReference: {fileID: 0}
     - target: {fileID: 5922139276349104862, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
       propertyPath: coolDown3
       value: 
-      objectReference: {fileID: 205550600}
+      objectReference: {fileID: 0}
     - target: {fileID: 5922139276349104862, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
       propertyPath: healthText
       value: 

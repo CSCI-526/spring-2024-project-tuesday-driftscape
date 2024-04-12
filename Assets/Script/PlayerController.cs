@@ -8,7 +8,7 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-    public float jumpForce; // ��Ծ����
+    public float jumpForce = 5.0f; // ��Ծ����
     public float speed;
     public float originalSpeed = 5f; // �ٶ�ԭʼ�ٶ�Ϊ5
     public KeyCode jumpKey = KeyCode.Space;
@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private float timer = 0f; // ��ʱ��
     public GameObject fgoal;
 
-    public float nextfly = 0.0F;
+    public float nextfly = 1.5f;
     public float nextfake = 0.0F;
     public Navigation[] navis;
     public Transform fbuild;
@@ -72,8 +72,6 @@ public class PlayerController : MonoBehaviour
             dummyenemyPos[i] = dummyenemies[i].position;
         }
 
-        jumpForce = 8;
-        FreeFlytime = 3.0f;
         speed = 5;
         fgoal.SetActive(false);
         restartButton.SetActive(false);
@@ -92,6 +90,7 @@ public class PlayerController : MonoBehaviour
         }
         timer += Time.deltaTime;
 
+
         // ÿ����ʱ���ﵽ�򳬹�1��ʱ
         if (timer >= 1f)
         {
@@ -103,7 +102,7 @@ public class PlayerController : MonoBehaviour
             Vector2 movement = new Vector2(moveHorizontal, moveVertical) * speed;
             rb2d.velocity = movement;
         }
-        if (dummyenemies.Length > 0)
+        if (dummyenemies.Length >= 0)
         {
             // dummy enemy move left and right around its original position
             foreach (Transform dummyenemy in dummyenemies)
@@ -277,14 +276,34 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator TemporaryLoseGravity(float duration)
     {
-        rb2d.gravityScale = 0; // ���ʧȥ����
-        canMoveFreely = true; // ������������ƶ�
-        health -= decHealth;
-        rb2d.velocity = new Vector2(rb2d.velocity.x, rb2d.velocity.x + 20f);
-        yield return new WaitForSeconds(duration); // �ȴ�ָ��ʱ��
-        rb2d.gravityScale = 1; // �ָ�����
-        canMoveFreely = false; // �ָ������ƶ�����
+        rb2d.gravityScale = 0; // 设置无重力
+        canMoveFreely = true; // 允许自由移动
+        health -= decHealth; // 减少健康值（或类似的属性）
+        rb2d.velocity = new Vector2(rb2d.velocity.x, 20f); // 设置刚体的向上速度
+
+        yield return new WaitForSeconds(duration); // 等待指定时间
+
+        StartCoroutine(FlashRedDuration(0.5f, 3)); // 开始闪烁红色效果，总时长0.5秒，闪烁3次
+        yield return new WaitForSeconds(0.5f); // 等待红色闪烁效果完成
+
+        rb2d.gravityScale = 1; // 恢复重力
+        canMoveFreely = false; // 恢复移动限制
     }
+
+    IEnumerator FlashRedDuration(float totalDuration, int flashCount)
+    {
+        float singleFlashDuration = totalDuration / (flashCount * 2); // 每次变色的持续时间
+
+        for (int i = 0; i < flashCount; i++)
+        {
+            spriteRenderer.color = Color.red; // 更改为红色
+            yield return new WaitForSeconds(singleFlashDuration); // 持续一段时间
+            spriteRenderer.color = originalColor; // 恢复原色
+            yield return new WaitForSeconds(singleFlashDuration); // 持续一段时间
+        }
+    }
+
+
 
     IEnumerator FakeGoal(float duration)
     {
@@ -302,7 +321,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator FlashRed()
     {
         spriteRenderer.color = Color.red;
-        yield return new WaitForSeconds(0.03f);
+        yield return new WaitForSeconds(0.05f);
         spriteRenderer.color = originalColor;
     }
 
@@ -315,7 +334,7 @@ public class PlayerController : MonoBehaviour
 
     GameObject bullet;
     public float nextFire = 0.0F;
-    public float fireCD = 3.0f;
+    public float fireCD = 2.0f;
     void Shoot()
     {
         // 子弹方向
