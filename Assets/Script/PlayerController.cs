@@ -19,13 +19,14 @@ public class PlayerController : MonoBehaviour
     public int decHealth = 5;
     public int incHealth = 5;
     private float timer = 0f; // ��ʱ��
-    public GameObject fgoal;
+    //public GameObject fgoal;
 
     public float nextfly = 1.5f;
     public float flygap = 15.0f;
     public float nextfake = 0.0F;
     public Navigation[] navis;
-    public Transform fbuild;
+    public GameObject fakePrefab;
+    //public Transform fbuild;
 
     // private LevelCompleteAnalytics analytic;
 
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
     // private bool isPaused = false;
     private bool hasFake = false;
+    private GameObject fake;
     // public GameObject pauseMenuUI;
 
     // Bullet
@@ -88,7 +90,7 @@ public class PlayerController : MonoBehaviour
         }
 
         speed = 5;
-        fgoal.SetActive(false);
+        //fgoal.SetActive(false);
         restartButton.SetActive(false);
         homeButton.SetActive(false);
         nextButton.SetActive(false);
@@ -103,10 +105,10 @@ public class PlayerController : MonoBehaviour
         }
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = canMoveFreely ? Input.GetAxis("Vertical") : 0;
-        if (!hasFake)
-        {
-            fbuild.position = transform.position;
-        }
+        // if (!hasFake)
+        // {
+        //     fbuild.position = transform.position;
+        // }
         timer += Time.deltaTime;
 
 
@@ -169,12 +171,13 @@ public class PlayerController : MonoBehaviour
         {
             nextfake = Time.time + 6.0F;
             hasFake = true;
-            fgoal.SetActive(true);
+            //fgoal.SetActive(true);
+            fake = Instantiate(fakePrefab, transform.position, transform.rotation);
             foreach (Navigation navi in navis)
             {
                 if (navi && navi.agent.isActiveAndEnabled){
                     navi.getconfused = true;
-                    navi.agent.SetDestination(fbuild.position);
+                    navi.agent.SetDestination(fake.transform.position);
                 } 
             }
             StartCoroutine(FakeGoal(3f));
@@ -348,7 +351,9 @@ public class PlayerController : MonoBehaviour
                 navi.getconfused = false;
             }
         }
-        fgoal.SetActive(false);
+        // fgoal.SetActive(false);
+        Destroy(fake);
+        Debug.Log("Destroy");
         hasFake = false;
     }
 
