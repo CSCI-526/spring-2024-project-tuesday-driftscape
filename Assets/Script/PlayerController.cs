@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public GameObject fgoal;
 
     public float nextfly = 1.5f;
+    public float flygap = 15.0f;
     public float nextfake = 0.0F;
     public Navigation[] navis;
     public Transform fbuild;
@@ -61,6 +62,11 @@ public class PlayerController : MonoBehaviour
 
 
     public Animator animator;
+    public void MyFunctionToCall()
+    {
+        Debug.Log("Called by Animation Event!");
+    }
+
     void Start()
     {
         AudioListener[] listeners = FindObjectsOfType<AudioListener>();
@@ -87,6 +93,7 @@ public class PlayerController : MonoBehaviour
         homeButton.SetActive(false);
         nextButton.SetActive(false);
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -151,7 +158,7 @@ public class PlayerController : MonoBehaviour
         // if input q, then player will lose gravity for 3 seconds
         if (Input.GetKeyDown(KeyCode.E)&& Time.time > nextfly)
         {
-            nextfly = Time.time + 6.0F;
+            nextfly = Time.time + flygap;
             Vector3 newPosition = transform.position;
             newPosition.y += 1.0f;
             transform.position = newPosition;
@@ -196,11 +203,19 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Jump");
         Vector2 v = new Vector2(Physics2D.gravity.x, -Physics2D.gravity.y / 9.8f);
         rb2d.AddForce(v * jumpForce, ForceMode2D.Impulse);
-        
+        animator.SetBool("jump", true);
     }
     void Move()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
+        if(moveHorizontal > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if(moveHorizontal < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
         Vector2 movement = new Vector2(moveHorizontal * speed, rb2d.velocity.y);
         rb2d.velocity = movement;
     }
