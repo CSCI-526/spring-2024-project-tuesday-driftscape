@@ -170,15 +170,15 @@ MonoBehaviour:
   health: 100
   decHealth: 5
   incHealth: 5
-  fgoal: {fileID: 0}
   nextfly: 0
   flygap: 15
   nextfake: 0
   navis:
   - {fileID: 0}
-  fbuild: {fileID: 0}
+  fakePrefab: {fileID: 1969931977634515408, guid: 0402aefb44b5c4de3b13515590d5a459, type: 3}
   dummyenemies:
   - {fileID: 0}
+  - {fileID: 1085433895106700341, guid: 0402aefb44b5c4de3b13515590d5a459, type: 3}
   dummyenemyPos: []
   FreeFlytime: 2
   flytimes: 0
