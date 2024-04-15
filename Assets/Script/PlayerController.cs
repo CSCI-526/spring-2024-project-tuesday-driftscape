@@ -63,6 +63,13 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     void Start()
     {
+        AudioListener[] listeners = FindObjectsOfType<AudioListener>();
+        foreach (AudioListener listener in listeners) {
+            if (listener.gameObject != this.gameObject) {
+                Destroy(listener); // or listener.enabled = false; to disable
+            }
+        }
+
         timestart = Time.time;
         Time.timeScale = 1;
         rb2d = GetComponent<Rigidbody2D>();
@@ -84,7 +91,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        animator.SetFloat("speed", Mathf.Abs(rb2d.velocity.x));
+        if(animator!=null){
+            animator.SetFloat("speed", Mathf.Abs(rb2d.velocity.x));
+        }
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = canMoveFreely ? Input.GetAxis("Vertical") : 0;
         if (!hasFake)
@@ -135,7 +144,9 @@ public class PlayerController : MonoBehaviour
         }
         if (isGrounded)
         {
-            animator.SetBool("jump", false);
+            if(animator!=null){
+                animator.SetBool("jump", false);
+            }
         }
         // if input q, then player will lose gravity for 3 seconds
         if (Input.GetKeyDown(KeyCode.E)&& Time.time > nextfly)
@@ -182,10 +193,10 @@ public class PlayerController : MonoBehaviour
     }
     void Jump()
     {
+        Debug.Log("Jump");
         Vector2 v = new Vector2(Physics2D.gravity.x, -Physics2D.gravity.y / 9.8f);
         rb2d.AddForce(v * jumpForce, ForceMode2D.Impulse);
-        animator.SetBool("jump", true);
-        Debug.Log("jump");
+        
     }
     void Move()
     {
