@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
     public GameObject homeButton;
     public GameObject restartButton; // 重新开始按钮
     public GameObject nextButton;
-    public string sceneName;
+
 
     public Animator animator;
     public void MyFunctionToCall()
@@ -69,10 +69,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        sceneName = SceneManager.GetActiveScene().name;
-        if(sceneName=="tutorial_enemy" || sceneName == "tutorial_move"|| sceneName == "tutorial_skill2"){
-            flygap = 1000.0f;
-        }
         AudioListener[] listeners = FindObjectsOfType<AudioListener>();
         foreach (AudioListener listener in listeners) {
             if (listener.gameObject != this.gameObject) {
@@ -160,7 +156,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         // if input q, then player will lose gravity for 3 seconds
-        if (Input.GetKeyDown(KeyCode.E)&& Time.time > nextfly&&sceneName!="tutorial_enemy" && sceneName != "tutorial_move"&& sceneName != "tutorial_skill2")
+        if (Input.GetKeyDown(KeyCode.E)&& Time.time > nextfly)
         {
             nextfly = Time.time + flygap;
             Vector3 newPosition = transform.position;
