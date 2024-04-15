@@ -84,8 +84,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(rb2d.velocity.x);
-        Debug.Log(Mathf.Abs(rb2d.velocity.x)>0.1);
         animator.SetFloat("speed", Mathf.Abs(rb2d.velocity.x));
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = canMoveFreely ? Input.GetAxis("Vertical") : 0;
@@ -135,6 +133,10 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+        if (isGrounded)
+        {
+            animator.SetBool("jump", false);
+        }
         // if input q, then player will lose gravity for 3 seconds
         if (Input.GetKeyDown(KeyCode.E)&& Time.time > nextfly)
         {
@@ -182,7 +184,8 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 v = new Vector2(Physics2D.gravity.x, -Physics2D.gravity.y / 9.8f);
         rb2d.AddForce(v * jumpForce, ForceMode2D.Impulse);
-
+        animator.SetBool("jump", true);
+        Debug.Log("jump");
     }
     void Move()
     {
