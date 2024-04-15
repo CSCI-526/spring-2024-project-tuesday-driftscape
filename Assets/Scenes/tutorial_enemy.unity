@@ -929,6 +929,22 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2933170145297727738, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933170145297727738, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933170145297727738, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 102900000, guid: 2ac8cf212df6445e8aebbe3cb832e993, type: 3}
+    - target: {fileID: 2933170145297727738, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3302872208190618380, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
       propertyPath: m_SizeDelta.x
       value: 113.5945
@@ -948,6 +964,14 @@ PrefabInstance:
     - target: {fileID: 3980352647443654808, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
       propertyPath: nextLevel
       value: tutorial_skill1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412150041379338533, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412150041379338533, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4721387740566877207, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
       propertyPath: m_UiScaleMode
