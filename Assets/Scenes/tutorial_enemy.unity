@@ -578,12 +578,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 408522071493555124, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5.3581867
+      objectReference: {fileID: 0}
+    - target: {fileID: 408522071493555124, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.749181
+      objectReference: {fileID: 0}
+    - target: {fileID: 408522071493555124, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.92
+      value: 5.0657
       objectReference: {fileID: 0}
     - target: {fileID: 408522071493555124, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.12
+      value: 1.1807
       objectReference: {fileID: 0}
     - target: {fileID: 408522071493555124, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: m_LocalPosition.z
@@ -617,16 +625,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2965052678561299067, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
+    - target: {fileID: 4784577013419342490, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
+      propertyPath: m_Radius
+      value: 0.11972358
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784577013419342490, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.024560396
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784577013419342490, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.02169441
       objectReference: {fileID: 0}
     - target: {fileID: 6829051932560495118, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6829051932560495118, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
@@ -638,10 +650,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 20745938}
     - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
-      propertyPath: jumpForce
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: homeButton
       value: 
       objectReference: {fileID: 627572367}
@@ -649,10 +657,6 @@ PrefabInstance:
       propertyPath: nextButton
       value: 
       objectReference: {fileID: 627572365}
-    - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 6755009687310227548, guid: 220c3fd13bf4a4042bfac63fa6d77124, type: 3}
     - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: restartButton
       value: 
