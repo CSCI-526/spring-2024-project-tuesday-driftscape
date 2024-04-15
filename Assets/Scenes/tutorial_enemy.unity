@@ -921,6 +921,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1607369719}
     m_Modifications:
+    - target: {fileID: 690462626220452035, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1132154144080811566, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
       propertyPath: m_RenderMode
       value: 1
@@ -1056,6 +1060,22 @@ PrefabInstance:
     - target: {fileID: 7561558080944807508, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846260528526512778, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
+      propertyPath: m_Color.a
+      value: 0.5411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846260528526512778, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846260528526512778, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846260528526512778, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
+      propertyPath: m_Color.r
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
