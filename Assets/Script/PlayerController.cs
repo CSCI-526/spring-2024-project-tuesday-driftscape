@@ -59,6 +59,8 @@ public class PlayerController : MonoBehaviour
     public GameObject restartButton; // 重新开始按钮
     public GameObject nextButton;
 
+
+    public Animator animator;
     void Start()
     {
         timestart = Time.time;
@@ -77,11 +79,14 @@ public class PlayerController : MonoBehaviour
         restartButton.SetActive(false);
         homeButton.SetActive(false);
         nextButton.SetActive(false);
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-
+        Debug.Log(rb2d.velocity.x);
+        Debug.Log(Mathf.Abs(rb2d.velocity.x)>0.1);
+        animator.SetFloat("speed", Mathf.Abs(rb2d.velocity.x));
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = canMoveFreely ? Input.GetAxis("Vertical") : 0;
         if (!hasFake)
