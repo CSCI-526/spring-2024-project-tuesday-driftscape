@@ -75,6 +75,10 @@ public class PlayerController : MonoBehaviour
         sceneName = SceneManager.GetActiveScene().name;
         if(sceneName=="tutorial_enemy" || sceneName == "tutorial_move"|| sceneName == "tutorial_skill2"){
             flygap = 1000.0f;
+            nextfly = 1000.0f;
+        }
+        if(sceneName=="tutorial_enemy" || sceneName == "tutorial_move"|| sceneName == "tutorial_skill1"){
+            nextfake = 1000.0f;
         }
         AudioListener[] listeners = FindObjectsOfType<AudioListener>();
         foreach (AudioListener listener in listeners) {
@@ -326,20 +330,20 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(duration); // 等待指定时间
 
-        StartCoroutine(FlashGreenDuration(0.5f, 3)); // 开始闪烁红色效果，总时长0.5秒，闪烁3次
+        StartCoroutine(FlashRedDuration(0.5f, 3)); // 开始闪烁红色效果，总时长0.5秒，闪烁3次
         yield return new WaitForSeconds(0.5f); // 等待红色闪烁效果完成
 
         rb2d.gravityScale = 1; // 恢复重力
         canMoveFreely = false; // 恢复移动限制
     }
 
-    IEnumerator FlashGreenDuration(float totalDuration, int flashCount)
+    IEnumerator FlashRedDuration(float totalDuration, int flashCount)
     {
         float singleFlashDuration = totalDuration / (flashCount * 2); // 每次变色的持续时间
 
         for (int i = 0; i < flashCount; i++)
         {
-            spriteRenderer.color = Color.green; // 更改为红色
+            spriteRenderer.color = Color.red; // 更改为红色
             yield return new WaitForSeconds(singleFlashDuration); // 持续一段时间
             spriteRenderer.color = originalColor; // 恢复原色
             yield return new WaitForSeconds(singleFlashDuration); // 持续一段时间
