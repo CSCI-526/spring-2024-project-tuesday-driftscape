@@ -183,6 +183,7 @@ public class PlayerController : MonoBehaviour
                 if (navi && navi.agent.isActiveAndEnabled){
                     navi.getconfused = true;
                     navi.agent.SetDestination(fake.transform.position);
+                    navi.agent.speed = 1.5f;
                 } 
             }
             StartCoroutine(FakeGoal(3f));

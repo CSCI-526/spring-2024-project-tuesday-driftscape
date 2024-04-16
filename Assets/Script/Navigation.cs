@@ -12,26 +12,27 @@ public class Navigation : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        // ×î³õÊ¹agent²»»î¶¯
+        // ï¿½ï¿½ï¿½Ê¹agentï¿½ï¿½ï¿½î¶¯
         agent.enabled = false;
     }
 
     void Update()
     {
-        // Íæ¼Ò´æÔÚÇÒagentÎ´±»»ìÂÒ»òÍ£Ö¹
+        // ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ï¿½ï¿½agentÎ´ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Í£Ö¹
         if (player != null && !getconfused)
         {
-            // ¼ì²éagentÊÇ·ñÔÚÉãÏñ»úÊÓÒ°ÄÚ
+            agent.speed = 3.0f;
+            // ï¿½ï¿½ï¿½agentï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ï¿½
             if (IsAgentVisibleToCamera() && !agent.enabled)
             {
-                // ¼¤»îagent²¢ÉèÖÃÄ¿±êÎªÍæ¼ÒÎ»ÖÃ
+                // ï¿½ï¿½ï¿½ï¿½agentï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½Îªï¿½ï¿½ï¿½Î»ï¿½ï¿½
                 agent.enabled = true;
                 agent.SetDestination(player.position);
             }
             else if (agent.enabled)
             {
                 Debug.Log(player.position);
-                // Èç¹ûagentÒÑ¼¤»î£¬Ôò¼ÌÐø×·ÖðÍæ¼Ò
+                // ï¿½ï¿½ï¿½agentï¿½Ñ¼ï¿½ï¿½î£¬ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½ï¿½ï¿½ï¿½ï¿½
                 agent.SetDestination(player.position);
             }
         }
@@ -41,7 +42,7 @@ public class Navigation : MonoBehaviour
     {
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
         Renderer renderer = GetComponent<Renderer>();
-        if (renderer != null) // È·±£Renderer×é¼þ´æÔÚ
+        if (renderer != null) // È·ï¿½ï¿½Rendererï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         {
             Bounds bounds = renderer.bounds;
             return GeometryUtility.TestPlanesAABB(planes, bounds);
