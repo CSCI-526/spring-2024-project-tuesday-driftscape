@@ -383,6 +383,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1143403692}
     - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
+      propertyPath: pauseBackground
+      value: 
+      objectReference: {fileID: 862588105}
+    - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: foods.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1323,6 +1327,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
+--- !u!1 &862588105 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 690462626220452035, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
+  m_PrefabInstance: {fileID: 862588104}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &865880331
 GameObject:
   m_ObjectHideFlags: 0

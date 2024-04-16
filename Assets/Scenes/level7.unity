@@ -5612,6 +5612,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1323108443}
   m_SourcePrefab: {fileID: 100100000, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
+--- !u!1 &3637333834967543120 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 690462626220452035, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
+  m_PrefabInstance: {fileID: 3637333834967543119}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6135360035211628254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5840,6 +5845,10 @@ PrefabInstance:
       propertyPath: restartButton
       value: 
       objectReference: {fileID: 2040187026}
+    - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
+      propertyPath: pauseBackground
+      value: 
+      objectReference: {fileID: 3637333834967543120}
     - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: foods.Array.size
       value: 8

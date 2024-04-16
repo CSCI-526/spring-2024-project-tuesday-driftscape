@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
     private int frameCounter = 0;
 
     // UI
+    public GameObject pauseBackground; // PauseMenu background
     public GameObject homeButton;
     public GameObject restartButton; // 重新开始按钮
     public GameObject nextButton;
@@ -100,6 +101,7 @@ public class PlayerController : MonoBehaviour
 
         speed = 5;
         //fgoal.SetActive(false);
+        pauseBackground.SetActive(false);
         restartButton.SetActive(false);
         homeButton.SetActive(false);
         nextButton.SetActive(false);
@@ -196,6 +198,7 @@ public class PlayerController : MonoBehaviour
         }
         if (health <= 0 || Input.GetKeyDown(KeyCode.Escape))
         {
+            pauseBackground.SetActive(true);
             restartButton.SetActive(true); // 显示重新开始按钮
             homeButton.SetActive(true); // 显示重新开始按钮
             Time.timeScale = 0;
@@ -273,6 +276,7 @@ public class PlayerController : MonoBehaviour
         {
             spriteRenderer.color = Color.green; // ��������ɫ��Ϊ��ɫ
             Time.timeScale = 0; // ��ֹ����
+            pauseBackground.SetActive(true);
             nextButton.SetActive(true); // 显示重新开始按钮
             homeButton.SetActive(true); // 显示重新开始按钮
             float timeElapsed = Time.time - timestart;

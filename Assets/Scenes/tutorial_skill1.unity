@@ -541,6 +541,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 392995137}
     - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
+      propertyPath: pauseBackground
+      value: 
+      objectReference: {fileID: 392995139}
+    - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: navis.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -769,6 +773,11 @@ GameObject:
 --- !u!1 &392995138 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5146315863516334868, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
+  m_PrefabInstance: {fileID: 392995135}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &392995139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 690462626220452035, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
   m_PrefabInstance: {fileID: 392995135}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &415952998

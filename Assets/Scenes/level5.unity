@@ -1028,6 +1028,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 42961396}
     - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
+      propertyPath: pauseBackground
+      value: 
+      objectReference: {fileID: 1078751341}
+    - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: dummyenemies.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1935,6 +1939,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
+--- !u!1 &1078751341 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 690462626220452035, guid: 427554c9b0c2c204d9e2309f833dbf01, type: 3}
+  m_PrefabInstance: {fileID: 1078751340}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1133172427 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1969931977634515408, guid: 0402aefb44b5c4de3b13515590d5a459, type: 3}
