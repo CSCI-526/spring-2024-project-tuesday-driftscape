@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2568588773955200844}
   - component: {fileID: 8532624998892585543}
   - component: {fileID: 879879264500674861}
+  - component: {fileID: 8736509140150979328}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -186,9 +187,11 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6755009687310227548, guid: 220c3fd13bf4a4042bfac63fa6d77124, type: 3}
   firePoint: {fileID: 0}
   timestart: 0
+  pauseBackground: {fileID: 0}
   homeButton: {fileID: 0}
   restartButton: {fileID: 0}
   nextButton: {fileID: 0}
+  sceneName: 
   animator: {fileID: 0}
   nextFire: 0
   fireCD: 3
@@ -213,3 +216,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8736509140150979328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6829051932560495118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a31c1041279af340ab182cb7d2a2d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

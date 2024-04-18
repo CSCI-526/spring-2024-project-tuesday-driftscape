@@ -47,3 +47,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: TransparentFX
+    uniqueID: 661845843
+    locked: 0
+  - name: Ignore Raycast
+    uniqueID: 3770064639
+    locked: 0
+  - name: Water
+    uniqueID: 28793069
+    locked: 0
+  - name: UI
+    uniqueID: 1260390993
+    locked: 0

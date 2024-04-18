@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 
-
-
 public class PlayerController : MonoBehaviour
 {
     public float jumpForce = 5.0f; // ��Ծ����
@@ -62,6 +60,7 @@ public class PlayerController : MonoBehaviour
     public GameObject homeButton;
     public GameObject restartButton; // 重新开始按钮
     public GameObject nextButton;
+    private bool isSent;
 
 
     public string sceneName;
@@ -107,6 +106,12 @@ public class PlayerController : MonoBehaviour
         nextButton.SetActive(false);
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        analytic = GetComponent<LevelCompleteAnalytics>();
+        if (analytic == null)
+        {
+            Debug.LogError("LevelCompleteAnalytics component not found on the player!");
+        }
+        isSent = false;
     }
 
     void Update()
@@ -116,10 +121,6 @@ public class PlayerController : MonoBehaviour
         }
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = canMoveFreely ? Input.GetAxis("Vertical") : 0;
-        // if (!hasFake)
-        // {
-        //     fbuild.position = transform.position;
-        // }
         timer += Time.deltaTime;
 
 
@@ -201,11 +202,15 @@ public class PlayerController : MonoBehaviour
             pauseBackground.SetActive(true);
             restartButton.SetActive(true); // 显示重新开始按钮
             homeButton.SetActive(true); // 显示重新开始按钮
-            Time.timeScale = 0;
-            float timeElapsed = Time.time;
-            float locationX = transform.position.x;
-            float locationY = transform.position.y;
-            analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed, flytimes, faketimes, health, locationX, locationY);
+            if (!isSent){
+                isSent = true;
+                Time.timeScale = 0;
+                float timeElapsed = Time.time;
+                float locationX = transform.position.x;
+                float locationY = transform.position.y;
+                analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed, flytimes, faketimes, health, locationX, locationY);
+            }
+
         }
 
         if (Input.GetMouseButtonDown(0)) // Left mouse button clicked
