@@ -30,7 +30,7 @@ public class LevelCompleteAnalytics : MonoBehaviour
         player.locationY = locationY;
         string json = JsonUtility.ToJson(player);
 
-        RestClient.Post("https://driftspace-default-rtdb.firebaseio.com/.json", json).Then(response =>
+        RestClient.Post("https://driftscape-e34be-default-rtdb.firebaseio.com/.json", json).Then(response =>
         {
             Debug.Log("Data sent successfully!");
         }).Catch(error =>

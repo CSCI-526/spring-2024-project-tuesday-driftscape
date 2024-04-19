@@ -60,7 +60,8 @@ public class PlayerController : MonoBehaviour
     public GameObject homeButton;
     public GameObject restartButton; // 重新开始按钮
     public GameObject nextButton;
-    private bool isSent;
+    private bool isFail;
+    private bool isSuccess;
 
 
     public string sceneName;
@@ -111,7 +112,8 @@ public class PlayerController : MonoBehaviour
         {
             Debug.LogError("LevelCompleteAnalytics component not found on the player!");
         }
-        isSent = false;
+        isFail = false;
+        isSuccess = false;
     }
 
     void Update()
@@ -206,13 +208,13 @@ public class PlayerController : MonoBehaviour
             pauseBackground.SetActive(true);
             restartButton.SetActive(true); // 显示重新开始按钮
             homeButton.SetActive(true); // 显示重新开始按钮
-            if (!isSent){
-                isSent = true;
+            if (health <= 0 && !isFail){
+                isFail = true;
                 Time.timeScale = 0;
                 float timeElapsed = Time.time;
                 float locationX = transform.position.x;
                 float locationY = transform.position.y;
-                analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed, flytimes, faketimes, health, locationX, locationY);
+                analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, false, timeElapsed, flytimes, faketimes, health, locationX, locationY);
             }
 
         }
@@ -288,10 +290,14 @@ public class PlayerController : MonoBehaviour
             pauseBackground.SetActive(true);
             nextButton.SetActive(true); // 显示重新开始按钮
             homeButton.SetActive(true); // 显示重新开始按钮
-            float timeElapsed = Time.time - timestart;
-            float locationX = transform.position.x;
-            float locationY = transform.position.y;
-            analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed, flytimes, faketimes, health, locationX, locationY);
+            if(!isSuccess){
+                isSuccess = true;
+                float timeElapsed = Time.time - timestart;
+                float locationX = transform.position.x;
+                float locationY = transform.position.y;
+                analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed, flytimes, faketimes, health, locationX, locationY);
+            }
+            
 
 
         }
