@@ -24,7 +24,7 @@ public class GateDown : MonoBehaviour
         {
             Debug.Log(1);
             Vector3 newPosition = objectToMove.transform.position;
-            newPosition.y -= yOffset; // 更新Y坐标
+            newPosition.y += yOffset; // 更新Y坐标
             objectToMove.transform.position = newPosition; // 应用新位置
             Vector3 newTriggerPosition = gameObject.transform.position;
             newTriggerPosition.y -= 0.5f; // 更新Y坐标

@@ -388,7 +388,7 @@ MonoBehaviour:
   fakeImg: {fileID: 4386205749835976741}
   fakeCD: 6
   flyImg: {fileID: 1539485546914746699}
-  flyCD: 6
+  flyCD: 10
   shootImg: {fileID: 7073749838583066710}
   shootCD: 3
   playerController: {fileID: 0}

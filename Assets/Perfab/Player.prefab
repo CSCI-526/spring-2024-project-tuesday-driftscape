@@ -172,7 +172,7 @@ MonoBehaviour:
   decHealth: 5
   incHealth: 5
   nextfly: 0
-  flygap: 15
+  flygap: 10
   nextfake: 0
   navis:
   - {fileID: 0}

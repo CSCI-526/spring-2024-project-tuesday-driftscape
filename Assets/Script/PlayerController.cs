@@ -152,8 +152,12 @@ public class PlayerController : MonoBehaviour
                 {
                     if (Vector3.Distance(dummyenemy.position, transform.position) < 1.05f)
                     {
-                        health -= 1;
-                        StartCoroutine(FlashRed());
+                        // 多帧减少一次生命值
+                        if (frameCounter % 4 == 0)
+                        {
+                            TakeDamage(1);
+                        }
+                        frameCounter++;
                     }
                 }
             }
