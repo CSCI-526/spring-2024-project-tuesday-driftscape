@@ -752,9 +752,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3472321106293751396, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369217686212982887, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4614000306799857727, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198212077651639025, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571866246185988851, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5922139276349104862, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
       propertyPath: healthText
@@ -764,6 +780,22 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 265029912}
+    - target: {fileID: 5945970977326231583, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970633656596639091, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7056113540387019190, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865302919420031345, guid: 89b517c002c8aaf429f97ddad3909460, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -75,11 +75,13 @@ public class PlayerController : MonoBehaviour
     {
         sceneName = SceneManager.GetActiveScene().name;
         if(sceneName=="tutorial_enemy" || sceneName == "tutorial_move"|| sceneName == "tutorial_skill2"){
-            flygap = 1000.0f;
             nextfly = 1000.0f;
         }
         if(sceneName=="tutorial_enemy" || sceneName == "tutorial_move"|| sceneName == "tutorial_skill1"){
             nextfake = 1000.0f;
+        }
+        if(sceneName=="tutorial_skill2" || sceneName == "tutorial_move"|| sceneName == "tutorial_skill1"){
+            nextFire = 1000.0f;
         }
         AudioListener[] listeners = FindObjectsOfType<AudioListener>();
         foreach (AudioListener listener in listeners) {
@@ -297,9 +299,6 @@ public class PlayerController : MonoBehaviour
                 float locationY = transform.position.y;
                 analytic.SendLevelCompleteEvent(SceneManager.GetActiveScene().name, true, timeElapsed, flytimes, faketimes, health, locationX, locationY);
             }
-            
-
-
         }
         if (other.gameObject.CompareTag("Slow")) // ��ײ�� "Slow" �ذ�
         {
