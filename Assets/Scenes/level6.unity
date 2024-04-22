@@ -279,7 +279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 879879264500674861, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2568588773955200844, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: m_BodyType
@@ -4025,6 +4025,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2862371103140264547, guid: 0b32c1a8d9bf93841ab77211379e4bcd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
     - target: {fileID: 5257078764997264477, guid: 0b32c1a8d9bf93841ab77211379e4bcd, type: 3}
       propertyPath: m_Name
       value: GateDown

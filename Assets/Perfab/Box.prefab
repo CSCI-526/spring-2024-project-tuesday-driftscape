@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 821385196928204793}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.213, y: 0.495, z: -0.007250266}
+  m_LocalPosition: {x: -0.191, y: 0.427, z: -0.007250266}
   m_LocalScale: {x: 0.3, y: 0.00451, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -130,7 +130,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.21300048, y: 0.49499995}
+  m_ConnectedAnchor: {x: -0.191, y: 0.427}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!61 &6335103654830400015
@@ -207,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 2299071301598139005}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.137, y: 0.491, z: -0.007250266}
+  m_LocalPosition: {x: 0.173, y: 0.431, z: -0.007250266}
   m_LocalScale: {x: 0.3, y: 0.00451, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -308,7 +308,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.1369995, y: 0.49099985}
+  m_ConnectedAnchor: {x: 0.173, y: 0.43100002}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!61 &1689868005516647988
@@ -434,11 +434,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 48fd9917466ade44fa9bfd8326fab049, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
+  m_DrawMode: 1
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -529,8 +529,8 @@ EdgeCollider2D:
   - {x: -0.48352236, y: -0.16948476}
   - {x: -0.47936434, y: 0.30196095}
   - {x: -0.46401045, y: 0.29684284}
-  - {x: -0.35097948, y: 0.47423112}
-  - {x: 0.32972676, y: 0.49562573}
+  - {x: -0.3267881, y: 0.41859096}
+  - {x: 0.31279266, y: 0.41095594}
   - {x: 0.48008168, y: 0.3763943}
   - {x: 0.4871435, y: -0.33452523}
   - {x: 0.34646147, y: -0.49132612}

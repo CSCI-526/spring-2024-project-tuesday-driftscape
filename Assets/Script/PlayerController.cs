@@ -201,7 +201,7 @@ public class PlayerController : MonoBehaviour
                     navi.agent.speed = 1.5f;
                 } 
             }
-            StartCoroutine(FakeGoal(3f));
+            StartCoroutine(FakeGoal(7f));
             TakeDamage(decHealth);
             faketimes++;
         }

@@ -3679,10 +3679,26 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 0ac8e42cef7484c2296e9bb3f38f5768, type: 2}
+    - target: {fileID: 1892230341665620481, guid: 0b32c1a8d9bf93841ab77211379e4bcd, type: 3}
+      propertyPath: m_Color.b
+      value: 0.053221736
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892230341665620481, guid: 0b32c1a8d9bf93841ab77211379e4bcd, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892230341665620481, guid: 0b32c1a8d9bf93841ab77211379e4bcd, type: 3}
+      propertyPath: m_Color.r
+      value: 0.1470662
+      objectReference: {fileID: 0}
     - target: {fileID: 2304776668014374041, guid: 0b32c1a8d9bf93841ab77211379e4bcd, type: 3}
       propertyPath: yOffset
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2862371103140264547, guid: 0b32c1a8d9bf93841ab77211379e4bcd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300182, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
     - target: {fileID: 3204250156745164729, guid: 0b32c1a8d9bf93841ab77211379e4bcd, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -4716,7 +4732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 879879264500674861, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2965052678561299067, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: m_SortingLayer
