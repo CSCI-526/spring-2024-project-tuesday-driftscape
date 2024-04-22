@@ -53,7 +53,6 @@ public class AttackController : MonoBehaviour
 
 
         if(Time.time - lastBeingHurtTime > 1.0f){
-            Debug.Log("beingHurt ended!");
             animator.SetBool("isWaiting", false);
             animator.SetBool("isBeingHurt", false);
         }

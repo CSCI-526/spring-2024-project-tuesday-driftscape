@@ -33,7 +33,14 @@ public class BulletController : MonoBehaviour
         {
             // 情形2：碰到敌人
             Debug.Log("Hit Enemy!");
-            collision.gameObject.GetComponent<AttackController>().Hurt();
+            if (collision.gameObject.GetComponent<AttackController>() != null){
+                collision.gameObject.GetComponent<AttackController>().Hurt();
+
+            }
+            if(collision.gameObject.GetComponent<WalkAttackController>() != null)
+            {
+                collision.gameObject.GetComponent<WalkAttackController>().Hurt();
+            }
             //调用敌人的受伤函数
             Destroy(gameObject);
 
