@@ -287,8 +287,8 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Goal")) // ����Ƿ���ײ��Goal
         {
-            spriteRenderer.color = Color.green; // ��������ɫ��Ϊ��ɫ
-            Time.timeScale = 0; // ��ֹ����
+            spriteRenderer.color = Color.green; 
+            Time.timeScale = 0; 
             pauseBackground.SetActive(true);
             nextButton.SetActive(true); // 显示重新开始按钮
             homeButton.SetActive(true); // 显示重新开始按钮
@@ -413,6 +413,14 @@ public class PlayerController : MonoBehaviour
 
         if (Time.time > nextFire)
         {
+            if(direction.x < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+            }
             nextFire = Time.time + fireCD;//子弹时间间隔设置为3.0秒
             bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
             health -= decHealth;

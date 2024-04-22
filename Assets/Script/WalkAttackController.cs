@@ -30,11 +30,14 @@ public class WalkAttackController : MonoBehaviour
         // 根据移动方向调整朝向
         if (currentDirection.x < 0)
         {
-            transform.localScale = new Vector3(1, 1, 1); // 向左
+            //flip the sprite
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            
         }
         else if (currentDirection.x > 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1); // 向右
+            //flip the sprite
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
 
         // 更新上一帧的位置
