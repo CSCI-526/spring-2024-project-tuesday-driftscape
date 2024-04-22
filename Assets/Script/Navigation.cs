@@ -31,7 +31,7 @@ public class Navigation : MonoBehaviour
             }
             else if (agent.enabled)
             {
-                Debug.Log(player.position);
+                // Debug.Log(player.position);
                 // ���agent�Ѽ�������׷�����
                 agent.SetDestination(player.position);
             }

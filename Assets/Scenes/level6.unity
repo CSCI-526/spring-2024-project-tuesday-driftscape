@@ -314,6 +314,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 879879264500674861, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2568588773955200844, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: m_BodyType
       value: 0
@@ -334,6 +338,10 @@ PrefabInstance:
       propertyPath: fbuild
       value: 
       objectReference: {fileID: 1726529097}
+    - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1459856862}
     - target: {fileID: 8532624998892585543, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: homeButton
       value: 
@@ -2464,6 +2472,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 865880332}
     m_Modifications:
+    - target: {fileID: -3215009898597257397, guid: 9e5986c5bcfb0754d839ecdc359b0a6a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 348588681000435877, guid: 9e5986c5bcfb0754d839ecdc359b0a6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.85
@@ -2607,6 +2619,11 @@ Transform:
 --- !u!4 &1459856860 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 408522071493555124, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
+  m_PrefabInstance: {fileID: 303996108}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1459856862 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 879879264500674861, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
   m_PrefabInstance: {fileID: 303996108}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1472547354

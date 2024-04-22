@@ -967,6 +967,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 879879264500674861, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2568588773955200844, guid: 8b9b6a7051d50974bb9feb601c0f4230, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -1513,7 +1517,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288176811}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3b5f8d0a79ca5b4888febca91e4db63, type: 3}
   m_Name: 
@@ -1521,6 +1525,7 @@ MonoBehaviour:
   decHealth: 10
   energyPrefab: {fileID: 4153509108143669655, guid: 0431417e1f4852b4fb4c84b8a20de511, type: 3}
   health: 100
+  animator: {fileID: 0}
 --- !u!95 &851258477
 Animator:
   serializedVersion: 5
@@ -1529,7 +1534,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288176811}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b5897d9f905a5e7459c47d6fcc465687, type: 2}
   m_CullingMode: 0
@@ -3022,6 +3027,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 735255129}
     m_Modifications:
+    - target: {fileID: -3215009898597257397, guid: 9e5986c5bcfb0754d839ecdc359b0a6a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 348588681000435877, guid: 9e5986c5bcfb0754d839ecdc359b0a6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.34
