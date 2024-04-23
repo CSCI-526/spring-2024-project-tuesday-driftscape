@@ -6350,13 +6350,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goal
       objectReference: {fileID: 0}
+    - target: {fileID: 2137923009244319778, guid: 179e0b8a244c5ff46a968bdfec118f82, type: 3}
+      propertyPath: m_Size.x
+      value: 1.6547546
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137923009244319778, guid: 179e0b8a244c5ff46a968bdfec118f82, type: 3}
+      propertyPath: m_Size.y
+      value: 3.1919904
+      objectReference: {fileID: 0}
     - target: {fileID: 8930946741884152589, guid: 179e0b8a244c5ff46a968bdfec118f82, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 111.69
+      value: 112.34
       objectReference: {fileID: 0}
     - target: {fileID: 8930946741884152589, guid: 179e0b8a244c5ff46a968bdfec118f82, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.913216
+      value: 16.39
       objectReference: {fileID: 0}
     - target: {fileID: 8930946741884152589, guid: 179e0b8a244c5ff46a968bdfec118f82, type: 3}
       propertyPath: m_LocalPosition.z
