@@ -2975,6 +2975,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1798423443}
     m_Modifications:
+    - target: {fileID: 4057439738418145310, guid: 43af1c4f4a78d0440b220ab3fbe74064, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4737676574583825490, guid: 43af1c4f4a78d0440b220ab3fbe74064, type: 3}
       propertyPath: m_Name
       value: HurtGround (2)
@@ -3389,6 +3393,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1798423443}
     m_Modifications:
+    - target: {fileID: 4057439738418145310, guid: 43af1c4f4a78d0440b220ab3fbe74064, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4737676574583825490, guid: 43af1c4f4a78d0440b220ab3fbe74064, type: 3}
       propertyPath: m_Name
       value: HurtGround
