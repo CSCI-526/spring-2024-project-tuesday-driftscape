@@ -180,6 +180,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0431417e1f4852b4fb4c84b8a20de511, type: 3}
+--- !u!1 &8978593 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4153509108143669655, guid: 0431417e1f4852b4fb4c84b8a20de511, type: 3}
+  m_PrefabInstance: {fileID: 8978592}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &50904803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8379799960485946639, guid: 0431417e1f4852b4fb4c84b8a20de511, type: 3}
@@ -2501,6 +2506,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 832771353836113844, guid: 9e5986c5bcfb0754d839ecdc359b0a6a, type: 3}
+      propertyPath: energyPrefab
+      value: 
+      objectReference: {fileID: 8978593}
     - target: {fileID: 5828139608853239394, guid: 9e5986c5bcfb0754d839ecdc359b0a6a, type: 3}
       propertyPath: m_Name
       value: EnemyWalk

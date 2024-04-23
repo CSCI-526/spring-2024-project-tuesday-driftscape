@@ -2039,6 +2039,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 832771353836113844, guid: 9e5986c5bcfb0754d839ecdc359b0a6a, type: 3}
+      propertyPath: energyPrefab
+      value: 
+      objectReference: {fileID: 4153509108143669655, guid: 0431417e1f4852b4fb4c84b8a20de511, type: 3}
     - target: {fileID: 5828139608853239394, guid: 9e5986c5bcfb0754d839ecdc359b0a6a, type: 3}
       propertyPath: m_Name
       value: EnemyWalk
@@ -6160,6 +6164,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 832771353836113844, guid: 9e5986c5bcfb0754d839ecdc359b0a6a, type: 3}
+      propertyPath: energyPrefab
+      value: 
+      objectReference: {fileID: 4153509108143669655, guid: 0431417e1f4852b4fb4c84b8a20de511, type: 3}
     - target: {fileID: 5828139608853239394, guid: 9e5986c5bcfb0754d839ecdc359b0a6a, type: 3}
       propertyPath: m_Name
       value: EnemyWalk (1)
