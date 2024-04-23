@@ -16,8 +16,12 @@ public class Missile : MonoBehaviour
             {
                 // 减少玩家的生命值
                 playerController.TakeDamage(damage); // 假设每次撞击减少10点生命值
+                Destroy(gameObject);
             }
         }
-        Destroy(gameObject);
+        if (other.gameObject.CompareTag("Platform") || other.gameObject.CompareTag("Ground")  || other.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

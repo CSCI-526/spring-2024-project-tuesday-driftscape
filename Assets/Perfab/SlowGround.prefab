@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2582970784168516487}
   - component: {fileID: -8985867657442792574}
   - component: {fileID: -8014450443794946507}
+  - component: {fileID: -2327936031732921306}
+  - component: {fileID: 1502017397396183030}
   m_Layer: 0
   m_Name: SlowGround
   m_TagString: Slow
@@ -158,3 +160,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &-2327936031732921306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778957317650984588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b4c6945a99c254997551a7e5bf3828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1502017397396183030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778957317650984588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b4c6945a99c254997551a7e5bf3828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

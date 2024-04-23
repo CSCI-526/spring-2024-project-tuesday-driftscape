@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6851068636411211398}
   - component: {fileID: 1928198937771616937}
   - component: {fileID: -5938657103262178767}
+  - component: {fileID: 3990296062398118037}
   m_Layer: 0
   m_Name: HurtGround
   m_TagString: Hurt
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 44.080746, y: 11.259378, z: 0}
-  m_LocalScale: {x: 10.68, y: 1.29, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 47be42199a3d2404881619912b869361, type: 3}
   m_Color: {r: 0.654902, g: 0.654902, b: 0.654902, a: 1}
   m_FlipX: 0
@@ -175,3 +176,15 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!114 &3990296062398118037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4737676574583825490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b4c6945a99c254997551a7e5bf3828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
