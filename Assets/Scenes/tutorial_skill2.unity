@@ -2218,6 +2218,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2005558312}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.93044674
+      objectReference: {fileID: 0}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.93044674
+      objectReference: {fileID: 0}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9716981
+      objectReference: {fileID: 0}
     - target: {fileID: 3223298781994107603, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
       propertyPath: m_Name
       value: EnemyFly

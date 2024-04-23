@@ -284,6 +284,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1672945207}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9123354
+      objectReference: {fileID: 0}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9123354
+      objectReference: {fileID: 0}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9622642
+      objectReference: {fileID: 0}
     - target: {fileID: 3223298781994107603, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
       propertyPath: m_Name
       value: EnemyFly
@@ -797,6 +809,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1672945207}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.91237986
+      objectReference: {fileID: 0}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.91237986
+      objectReference: {fileID: 0}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9528302
+      objectReference: {fileID: 0}
     - target: {fileID: 3223298781994107603, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
       propertyPath: m_Name
       value: EnemyFly (6)
@@ -928,6 +952,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1672945207}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.93948025
+      objectReference: {fileID: 0}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.93948025
+      objectReference: {fileID: 0}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9811321
+      objectReference: {fileID: 0}
     - target: {fileID: 3223298781994107603, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
       propertyPath: m_Name
       value: EnemyFly (5)
@@ -1216,6 +1252,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1672945207}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.93961376
+      objectReference: {fileID: 0}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.93961376
+      objectReference: {fileID: 0}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9716981
+      objectReference: {fileID: 0}
     - target: {fileID: 3223298781994107603, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
       propertyPath: m_Name
       value: EnemyFly (3)
@@ -1923,6 +1971,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1672945207}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.93934673
+      objectReference: {fileID: 0}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.93934673
+      objectReference: {fileID: 0}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9528302
+      objectReference: {fileID: 0}
     - target: {fileID: 3223298781994107603, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
       propertyPath: m_Name
       value: EnemyFly (1)
@@ -2958,6 +3018,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1672945207}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.93948025
+      objectReference: {fileID: 0}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.93948025
+      objectReference: {fileID: 0}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9811321
+      objectReference: {fileID: 0}
     - target: {fileID: 3223298781994107603, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
       propertyPath: m_Name
       value: EnemyFly (2)
@@ -3316,6 +3388,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1672945207}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9395693
+      objectReference: {fileID: 0}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9395693
+      objectReference: {fileID: 0}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9622642
+      objectReference: {fileID: 0}
     - target: {fileID: 3223298781994107603, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
       propertyPath: m_Name
       value: EnemyFly (4)
@@ -4075,6 +4159,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1672945207}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.93961376
+      objectReference: {fileID: 0}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.93961376
+      objectReference: {fileID: 0}
+    - target: {fileID: 807162247932798374, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9716981
+      objectReference: {fileID: 0}
     - target: {fileID: 3223298781994107603, guid: 505a9aa32f0d27d4c8101b51dca5b17c, type: 3}
       propertyPath: m_Name
       value: EnemyFly (7)
